@@ -92,7 +92,8 @@ export const stack = {
 
 export type RecentProject = {
   host: string; // address-bar text; only `href` projects are real, live sites
-  href?: string;
+  href?: string; // live demo
+  repo?: string; // public source repository
   title: string;
   points: string[];
 };
@@ -101,6 +102,7 @@ export const recentProjects: RecentProject[] = [
   {
     host: "mastersoft-grade-assistant.web.app",
     href: "https://mastersoft-grade-assistant.web.app",
+    repo: "https://github.com/mjbadorable/Mastersoft-Grade-Encoding-Assistant",
     title: "Mastersoft Grade Assistant v2.0",
     points: ["Formula validation", "Spreadsheet grid", "328 tests"],
   },

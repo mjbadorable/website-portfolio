@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -21,9 +22,10 @@ const description =
   "Computer engineer and AI systems builder developing resilient full-stack web platforms, deterministic workflow automations, and educational technology enablement.";
 
 export const metadata: Metadata = {
-  // Set NEXT_PUBLIC_SITE_URL in Vercel to the final domain.
+  // Falls back to the live Vercel URL; set NEXT_PUBLIC_SITE_URL once a custom domain is attached.
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      "https://website-portfolio-rho-amber.vercel.app",
   ),
   title: { default: title, template: `%s · ${profile.name}` },
   description,
@@ -79,6 +81,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </main>
           <Footer />
         </ThemeAndMotionProvider>
+        <Analytics />
       </body>
     </html>
   );

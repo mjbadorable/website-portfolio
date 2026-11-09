@@ -105,19 +105,32 @@ export function TechStackAndProjects() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-auto pt-5">
-                    {p.href ? (
+                  <div className="mt-auto flex flex-wrap items-center gap-2 pt-5">
+                    {p.href && (
                       <a
                         href={p.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex h-9 items-center gap-1.5 rounded-md border border-line bg-tint px-3.5 text-[13px] font-medium text-fg shadow-[inset_0_1px_0_0_var(--highlight)] transition-colors hover:border-line-strong hover:bg-surface-hover"
+                        className="inline-flex h-8 items-center gap-1.5 rounded-md border border-line bg-tint px-3 text-xs font-medium text-fg shadow-[inset_0_1px_0_0_var(--highlight)] transition-colors hover:border-line-strong hover:bg-surface-hover"
                       >
-                        Visit live site
-                        <ArrowUpRight aria-hidden="true" className="size-3.5" />
+                        Live demo
+                        <ArrowUpRight aria-hidden="true" className="size-3" />
                         <span className="sr-only">(opens in a new tab)</span>
                       </a>
-                    ) : (
+                    )}
+                    {p.repo && (
+                      <a
+                        href={p.repo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex h-8 items-center gap-1.5 rounded-md border border-line bg-tint px-3 text-xs font-medium text-fg shadow-[inset_0_1px_0_0_var(--highlight)] transition-colors hover:border-line-strong hover:bg-surface-hover"
+                      >
+                        Source code
+                        <ArrowUpRight aria-hidden="true" className="size-3" />
+                        <span className="sr-only">(opens in a new tab)</span>
+                      </a>
+                    )}
+                    {!p.href && !p.repo && (
                       <span className="font-mono text-[11px] text-muted">
                         Internal build · address bar simulated
                       </span>
