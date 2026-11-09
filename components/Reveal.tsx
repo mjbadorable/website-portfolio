@@ -5,7 +5,7 @@ import { MotionConfig, motion } from "framer-motion";
 // One fade-up per block, once, when it enters the viewport.
 export function Reveal({ children }: { children: React.ReactNode }) {
   return (
-    <MotionConfig reducedMotion="user">
+    <MotionConfig>
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         whileInView={{ opacity: 1, y: 0 }}

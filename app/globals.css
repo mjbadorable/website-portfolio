@@ -1,35 +1,200 @@
 @import "tailwindcss";
 
+/* Semantic colour tokens. Components use these utilities (bg-canvas, text-fg,
+   border-line, ...) and never a hard-coded palette, so a theme switch is just
+   a different set of variables on <html data-theme="...">. */
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --color-canvas: #f8fafc;
-  --color-card: #ffffff;
-  --color-ink: #0f172a;
-  --color-muted: #475569;
-  --color-line: #e2e8f0;
-  --color-primary: #2c469a;
-  --color-primary-hover: #243a80;
-  --color-accent: #f59e0b;
-  --color-accent-soft: #fef3c7;
+  --color-canvas: var(--bg-canvas);
+  --color-surface: var(--bg-surface);
+  --color-surface-hover: var(--bg-surface-hover);
+  --color-sunken: var(--bg-sunken);
+  --color-tint: var(--bg-tint);
+  --color-tint-2: var(--bg-tint-2);
+  --color-fg: var(--text-primary);
+  --color-fg-2: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  --color-line: var(--border-subtle);
+  --color-line-strong: var(--border-strong);
+  --color-accent: var(--accent-solid);
+  --color-accent-fg: var(--accent-text);
+  --color-ok: var(--ok);
+}
 
-  --shadow-card:
-    0 1px 2px rgb(15 23 42 / 0.04), 0 12px 24px -16px rgb(15 23 42 / 0.12);
+/* Theme 1: Obsidian (default editorial dark) */
+:root,
+:root[data-theme="obsidian"] {
+  color-scheme: dark;
+  --bg-canvas: #09090b;
+  --bg-surface: rgba(24, 24, 27, 0.55);
+  --bg-surface-hover: rgba(39, 39, 42, 0.75);
+  --bg-sunken: rgba(0, 0, 0, 0.4);
+  --bg-tint: rgba(255, 255, 255, 0.03);
+  --bg-tint-2: rgba(255, 255, 255, 0.07);
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --accent-solid: #fafafa;
+  --accent-text: #09090b;
+  --ok: #34d399;
+  --highlight: rgba(255, 255, 255, 0.08);
+  --glow: rgba(255, 255, 255, 0.06);
+  --spot: rgba(255, 255, 255, 0.07);
+  --vignette: rgba(9, 9, 11, 0.55);
+  --focus: #ffffff;
+}
+
+/* Theme 2: Paper (warm architectural light; never pure white) */
+:root[data-theme="paper"] {
+  color-scheme: light;
+  --bg-canvas: #f4f3ef;
+  --bg-surface: rgba(255, 255, 255, 0.85);
+  --bg-surface-hover: #ffffff;
+  --bg-sunken: rgba(17, 17, 19, 0.045);
+  --bg-tint: rgba(17, 17, 19, 0.03);
+  --bg-tint-2: rgba(17, 17, 19, 0.07);
+  --text-primary: #111113;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
+  --border-subtle: rgba(17, 17, 19, 0.1);
+  --border-strong: rgba(17, 17, 19, 0.3);
+  --accent-solid: #111113;
+  --accent-text: #f4f3ef;
+  --ok: #047857;
+  --highlight: rgba(255, 255, 255, 0.9);
+  --glow: rgba(17, 17, 19, 0.05);
+  --spot: rgba(17, 17, 19, 0.06);
+  --vignette: rgba(17, 17, 19, 0.14);
+  --focus: #111113;
+}
+
+/* Theme 3: Terminal (high-contrast blueprint) */
+:root[data-theme="terminal"] {
+  color-scheme: dark;
+  --bg-canvas: #000000;
+  --bg-surface: rgba(10, 10, 10, 0.9);
+  --bg-surface-hover: rgba(24, 24, 27, 0.95);
+  --bg-sunken: rgba(0, 0, 0, 0.6);
+  --bg-tint: rgba(255, 255, 255, 0.05);
+  --bg-tint-2: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d8;
+  --text-muted: #a1a1aa;
+  --border-subtle: rgba(255, 255, 255, 0.22);
+  --border-strong: #ffffff;
+  --accent-solid: #10b981;
+  --accent-text: #000000;
+  --ok: #10b981;
+  --highlight: rgba(255, 255, 255, 0.2);
+  --glow: rgba(16, 185, 129, 0.08);
+  --spot: rgba(16, 185, 129, 0.12);
+  --vignette: rgba(0, 0, 0, 0.6);
+  --focus: #10b981;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 html {
-  scroll-padding-top: 4.5rem; /* clear the sticky 56px header */
+  background: var(--bg-canvas);
+  scroll-padding-top: 6rem; /* clear the floating capsule */
 }
 
 body {
-  background: var(--color-canvas);
-  color: var(--color-ink);
+  background: var(--bg-canvas);
+  color: var(--text-primary);
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
+::selection {
+  background: var(--bg-tint-2);
+}
+
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--focus);
   outline-offset: 2px;
   border-radius: 4px;
+}
+
+/* Card lift: transform + border colour only (compositor-friendly). */
+.lift {
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.2s ease;
+}
+.lift:hover {
+  transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lift:hover {
+    transform: none;
+  }
+}
+html[data-motion="off"] .lift:hover {
+  transform: none;
+}
+
+/* Cursor-tracking spotlight with border illumination (Talks domain cells) */
+.spot-card {
+  position: relative;
+}
+.spot-card::before,
+.spot-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.spot-card::before {
+  background: radial-gradient(
+    280px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--spot),
+    transparent 70%
+  );
+}
+.spot-card::after {
+  padding: 1px;
+  background: radial-gradient(
+    200px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--border-strong),
+    transparent 70%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+}
+.spot-card:hover::before,
+.spot-card:hover::after {
+  opacity: 1;
+}
+
+/* Motion OFF (user toggle, or OS reduced-motion with no saved choice):
+   stop every CSS animation and transition; Framer is switched via MotionConfig. */
+html[data-motion="off"] *,
+html[data-motion="off"] *::before,
+html[data-motion="off"] *::after {
+  animation: none !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Hero entrance: with Motion OFF the cinematic reveal is skipped entirely, even
+   though the provider only learns the setting after hydration. */
+html[data-motion="off"] .hero-reveal {
+  clip-path: none !important;
+  transform: none !important;
+  opacity: 1 !important;
 }

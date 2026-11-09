@@ -2,21 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { MotionConfig, motion } from "framer-motion";
+import { SpotlightCard } from "./SpotlightCard";
 
-const PAYLOAD = `{
-  "source": "contact_form",
-  "name": "Sample Lead",
-  "email": "lead@example.com",
-  "message": "Need a quote for workflow automation."
-}`;
+const MONO = "font-mono text-[11px] uppercase tracking-[0.2em]";
+
+const PAYLOAD: [key: string, value: string][] = [
+  ["source", "contact_form"],
+  ["name", "Sample Lead"],
+  ["email", "lead@example.com"],
+  ["message", "Need a quote for workflow automation."],
+];
 
 const STAGES = [
-  {
-    num: "01",
-    name: "Ingestion",
-    result: "Payload validated",
-    ms: 700,
-  },
+  { num: "01", name: "Ingestion", result: "Payload validated", ms: 700 },
   {
     num: "02",
     name: "Guardrail",
@@ -31,6 +29,9 @@ const STAGES = [
   },
 ] as const;
 
+const button =
+  "inline-flex h-11 items-center rounded-lg border px-5 text-sm font-medium shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition-colors";
+
 // step: 0 = idle, 1..3 = that stage is running, 4 = finished
 export function WorkflowSimulator() {
   const [step, setStep] = useState(0);
@@ -43,55 +44,84 @@ export function WorkflowSimulator() {
   }, [step, running]);
 
   return (
-    <section
-      id="sandbox"
-      aria-labelledby="sandbox-heading"
-      className="mt-12 sm:mt-16"
-    >
-      <h2
-        id="sandbox-heading"
-        className="font-mono text-xs uppercase tracking-widest text-muted"
+    <MotionConfig>
+      <section
+        id="sandbox"
+        aria-labelledby="sandbox-heading"
+        className="relative mt-6 overflow-hidden rounded-2xl border border-white/[0.08] bg-void p-6 text-zinc-100 sm:mt-10 sm:p-10 lg:p-14"
       >
-        <span aria-hidden="true" className="text-primary">
-          04 /{" "}
-        </span>
-        Interactive sandbox: simulated workflow
-      </h2>
-
-      <MotionConfig reducedMotion="user">
-        <div className="mt-5 overflow-hidden rounded-xl border border-line bg-card shadow-card">
-          <div className="flex items-center justify-between gap-4 border-b border-line bg-canvas px-5 py-2.5 sm:px-8">
-            <span className="font-mono text-xs text-muted">
-              ▸ sandbox / test-payload
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_45%_at_85%_0%,rgba(255,255,255,0.06),transparent_70%)]"
+        />
+        <div className="relative">
+          <p className={`${MONO} text-zinc-500`}>
+            [05 / Interactive sandbox · Simulated workflow]
+          </p>
+          <h2
+            id="sandbox-heading"
+            className="mt-4 max-w-[24ch] text-4xl font-medium leading-[1.06] tracking-[-0.04em] md:text-5xl"
+          >
+            Test the pipeline live.{" "}
+            <span className="text-zinc-500">
+              Deterministic execution in seconds.
             </span>
-            <span className="font-mono text-xs text-muted">
-              Simulated · no real data
-            </span>
-          </div>
+          </h2>
 
-          <div className="grid gap-6 p-5 sm:p-8 lg:grid-cols-12 lg:gap-8">
-            {/* Payload */}
-            <div className="lg:col-span-5">
-              <p className="font-mono text-xs uppercase tracking-wider text-muted">
-                Inbound payload
-              </p>
-              <pre className="mt-2 overflow-x-auto rounded-lg border border-line bg-canvas p-4 font-mono text-[13px] leading-relaxed text-ink/80">
-                {PAYLOAD}
-              </pre>
+          <div className="mt-10 grid grid-cols-12 gap-4 lg:gap-6">
+            {/* Payload terminal */}
+            <div className="col-span-12 lg:col-span-5">
+              <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-black/60 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.08)]">
+                <div className="flex items-center justify-between gap-3 border-b border-white/[0.08] bg-white/[0.02] px-4 py-2.5">
+                  <span aria-hidden="true" className="flex gap-1.5">
+                    <span className="size-2.5 rounded-full bg-white/10" />
+                    <span className="size-2.5 rounded-full bg-white/10" />
+                    <span className="size-2.5 rounded-full bg-white/10" />
+                  </span>
+                  <span className="font-mono text-[11px] text-zinc-500">
+                    payload.json · simulated, no real data
+                  </span>
+                </div>
+                <pre className="overflow-x-auto p-4 font-mono text-[13px] leading-relaxed">
+                  <code>
+                    <span className="text-zinc-500">{"{"}</span>
+                    {PAYLOAD.map(([key, value], i) => (
+                      <span key={key} className="block pl-4">
+                        <span className="text-zinc-400">{`"${key}"`}</span>
+                        <span className="text-zinc-500">: </span>
+                        <span className="text-emerald-300">{`"${value}"`}</span>
+                        <span className="text-zinc-500">
+                          {i < PAYLOAD.length - 1 ? "," : ""}
+                        </span>
+                      </span>
+                    ))}
+                    <span className="text-zinc-500">{"}"}</span>
+                  </code>
+                </pre>
+              </div>
+
               <div className="mt-4 flex flex-wrap gap-3">
                 <button
                   type="button"
                   disabled={running}
                   onClick={() => setStep(1)}
-                  className="inline-flex h-11 items-center rounded-lg bg-primary px-5 text-base font-medium text-white transition-colors hover:bg-primary-hover disabled:cursor-not-allowed disabled:opacity-60"
+                  className={`${button} ${
+                    running
+                      ? "cursor-not-allowed border-emerald-400/40 bg-emerald-400/10 text-emerald-300 shadow-[inset_0_1px_0_0_rgba(110,231,183,0.2),0_0_16px_-4px_rgba(52,211,153,0.5)]"
+                      : "border-white/[0.14] bg-white/[0.03] text-zinc-100 hover:border-emerald-400/40 hover:bg-white/[0.07]"
+                  }`}
                 >
-                  {running ? "Running…" : step === 4 ? "Re-run" : "Run Test Payload"}
+                  {running
+                    ? "Running…"
+                    : step === 4
+                      ? "Re-run"
+                      : "Run Test Payload"}
                 </button>
                 {step !== 0 && (
                   <button
                     type="button"
                     onClick={() => setStep(0)}
-                    className="inline-flex h-11 items-center rounded-lg border border-line bg-card px-5 text-base font-medium text-ink transition-colors hover:border-primary/40"
+                    className={`${button} border-white/[0.14] bg-white/[0.03] text-zinc-300 hover:border-white/30 hover:bg-white/[0.07]`}
                   >
                     Reset
                   </button>
@@ -99,63 +129,73 @@ export function WorkflowSimulator() {
               </div>
             </div>
 
-            {/* Pipeline */}
+            {/* Stage execution */}
             <ol
               aria-live="polite"
-              className="flex flex-col gap-3 lg:col-span-7"
+              className="col-span-12 flex flex-col gap-3 lg:col-span-7"
             >
               {STAGES.map((stage, i) => {
                 const n = i + 1;
                 const state =
                   step > n ? "done" : step === n ? "active" : "pending";
                 return (
-                  <li
-                    key={stage.num}
-                    className={`flex gap-4 rounded-lg border p-4 transition-colors ${
-                      state === "pending"
-                        ? "border-line bg-card"
-                        : "border-primary/30 bg-canvas"
-                    }`}
-                  >
-                    <span
-                      className={`flex size-9 shrink-0 items-center justify-center rounded-full font-mono text-xs font-semibold ${
-                        state === "done"
-                          ? "bg-primary text-white"
-                          : state === "active"
-                            ? "bg-primary/10 text-primary motion-safe:animate-pulse"
-                            : "bg-canvas text-muted ring-1 ring-line"
-                      }`}
+                  <li key={stage.num}>
+                    <SpotlightCard
+                      className="p-4"
+                      innerClassName="flex items-start gap-4"
                     >
-                      {state === "done" ? "✓" : stage.num}
-                    </span>
-                    <div className="min-w-0">
-                      <p className="font-mono text-xs uppercase tracking-wider text-muted">
-                        {stage.name}
-                      </p>
-                      <p className="mt-1 min-h-6 text-base font-medium leading-snug">
-                        {state === "done" ? (
-                          <motion.span
-                            initial={{ opacity: 0, y: 4 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="block"
-                          >
-                            {stage.result}
-                          </motion.span>
-                        ) : state === "active" ? (
-                          <span className="text-muted">Processing…</span>
-                        ) : (
-                          <span className="text-muted/70">Waiting</span>
-                        )}
-                      </p>
-                    </div>
+                      <span
+                        className={`flex size-9 shrink-0 items-center justify-center rounded-full border font-mono text-xs font-semibold ${
+                          state === "done"
+                            ? "border-emerald-400/40 bg-emerald-400/10 text-emerald-400"
+                            : state === "active"
+                              ? "border-white/30 bg-white/10 text-zinc-100"
+                              : "border-white/[0.08] text-zinc-600"
+                        }`}
+                      >
+                        {state === "done" ? "✓" : stage.num}
+                      </span>
+                      <div className="min-w-0">
+                        <p
+                          className={`${MONO} ${
+                            state === "pending"
+                              ? "text-zinc-600"
+                              : "text-zinc-400"
+                          }`}
+                        >
+                          {stage.name}
+                        </p>
+                        <p className="mt-1.5 min-h-6 text-base leading-snug">
+                          {state === "done" ? (
+                            <motion.span
+                              initial={{ opacity: 0, y: 4 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="block font-medium text-zinc-100"
+                            >
+                              {stage.result}
+                            </motion.span>
+                          ) : state === "active" ? (
+                            <span className="inline-flex items-center gap-2 text-zinc-300">
+                              <span
+                                aria-hidden="true"
+                                className="size-1.5 rounded-full bg-zinc-100 motion-safe:animate-pulse"
+                              />
+                              Processing…
+                            </span>
+                          ) : (
+                            <span className="text-zinc-600">Waiting</span>
+                          )}
+                        </p>
+                      </div>
+                    </SpotlightCard>
                   </li>
                 );
               })}
             </ol>
           </div>
         </div>
-      </MotionConfig>
-    </section>
+      </section>
+    </MotionConfig>
   );
 }

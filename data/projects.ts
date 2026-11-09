@@ -79,32 +79,6 @@ export const projects = [
     },
   },
   {
-    slug: "ai-lead-triage-crm",
-    name: "AI Lead Triage & Multi-Step CRM Automation",
-    role: "AI Automation Architect",
-    roi: {
-      problem:
-        "Inbound sales inquiries sat in general inboxes for hours, leading to delayed response times and lost conversion opportunities.",
-      bottleneck:
-        "Manual inquiry sorting, qualification, and data re-entry across CRM and messaging tools.",
-      outcome:
-        "Automated qualification and CRM routing with drafted review-ready responses delivered under 2 minutes.",
-      timeSaved: "10+ hours/week saved in manual inbox triaging",
-    },
-    architecture: {
-      trigger:
-        "Inbound webhook from contact forms, email, or scheduling webhooks.",
-      aiPipeline:
-        "Claude API parses intent, extracts lead qualification metadata, and drafts personalized context-aware replies.",
-      guardrail:
-        "Structured JSON schema validation, Human-in-the-Loop review before dispatch, and holds drafts in queue to eliminate auto-send errors.",
-      stack: ["Activepieces", "Webhooks", "Claude API", "TypeScript", "HubSpot / Notion API"],
-    },
-    trustBadges: ["Human-in-the-Loop", "Draft-Only Review Gate", "Schema-Validated"],
-    metrics: ["< 2 min triage", "Strict Schema Fences", "Automated CRM sync"],
-    access: { type: "internal", note: "Production Workflow" },
-  },
-  {
     slug: "rag-knowledge-assistant",
     name: "Hallucination-Proof RAG Knowledge Assistant",
     role: "AI Systems Engineer",

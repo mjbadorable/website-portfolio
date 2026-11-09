@@ -1,78 +1,146 @@
 "use client";
 
-import { MotionConfig, motion } from "framer-motion";
+import Image from "next/image";
+import { MotionConfig, motion, type Variants } from "framer-motion";
 import { profile } from "@/data/profile";
+import { SpotlightCard } from "./SpotlightCard";
 
-function formatMonth(ym: string) {
-  const [y, m] = ym.split("-").map(Number);
-  return new Intl.DateTimeFormat("en-US", {
-    month: "short",
-    year: "numeric",
-    timeZone: "UTC",
-  }).format(new Date(Date.UTC(y, m - 1, 1)));
-}
+const stagger: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.07 } },
+};
 
-function Identity() {
-  const { identity, identityEmphasis } = profile;
-  const i = identity.indexOf(identityEmphasis);
-  if (i === -1) return <>{identity}</>;
+const rise: Variants = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+function Corner({ className }: { className: string }) {
   return (
-    <>
-      {identity.slice(0, i)}
-      <span className="text-primary">{identityEmphasis}</span>
-      {identity.slice(i + identityEmphasis.length)}
-    </>
+    <span
+      aria-hidden="true"
+      className={`absolute size-4 border-white/40 ${className}`}
+    />
   );
 }
 
 export function Hero() {
+  const { portrait } = profile;
+
   return (
-    <MotionConfig reducedMotion="user">
-      <motion.section
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className="flex flex-col justify-center rounded-xl border border-line bg-card p-6 shadow-card sm:min-h-[calc(100svh-9rem)] sm:p-10 lg:p-14"
+    <MotionConfig>
+      <section
+        aria-labelledby="hero-heading"
+        className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-void p-6 text-zinc-100 sm:p-10 lg:p-14"
       >
-        <div className="flex flex-col items-start gap-2">
-          <p className="inline-flex items-start gap-2 rounded-2xl border border-accent/40 bg-accent-soft px-3 py-1.5 text-[13px] leading-snug text-ink">
-            <span aria-hidden="true">⚡</span>
-            <span>
-              <span className="font-semibold">Currently:</span>{" "}
-              {profile.focus.text}
-            </span>
-          </p>
-          <span className="pl-1 font-mono text-xs text-muted">
-            Updated {formatMonth(profile.focus.updatedAt)}
-          </span>
-        </div>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_55%_at_85%_0%,rgba(255,255,255,0.07),transparent_70%)]"
+        />
 
-        <h1 className="mt-6 max-w-[22ch] text-[clamp(2.25rem,6vw,3.75rem)] font-semibold leading-[1.08] tracking-tight sm:mt-8">
-          <Identity />
-        </h1>
-
-        <ul className="mt-6 flex flex-wrap gap-2.5">
-          {profile.chips.map((chip) => (
-            <li
-              key={chip}
-              className="rounded-full border border-line bg-canvas px-3.5 py-1.5 text-sm text-ink shadow-[0_1px_2px_rgb(15_23_42/0.05)]"
-            >
-              {chip}
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-10">
-          <a
-            href={profile.cvPath}
-            download
-            className="inline-flex h-12 items-center gap-2 rounded-lg border border-primary/30 bg-card px-6 text-base font-medium text-primary shadow-[0_1px_2px_rgb(15_23_42/0.06)] transition-colors hover:border-primary hover:bg-primary hover:text-white"
+        <div className="relative grid grid-cols-12 items-center gap-8 lg:gap-12">
+          {/* Portrait (left on desktop, below the headline on mobile) */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: "easeOut", delay: 0.15 }}
+            className="order-2 col-span-12 sm:col-span-8 lg:order-1 lg:col-span-5"
           >
-            Download CV
-            <span aria-hidden="true">↓</span>
-          </a>
+            <SpotlightCard className="p-3">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-lg border border-white/10 bg-white/[0.02]">
+                {portrait ? (
+                  <Image
+                    src={portrait.src}
+                    alt={portrait.alt}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 420px, 100vw"
+                    className="object-cover object-top"
+                  />
+                ) : (
+                  <div
+                    aria-hidden="true"
+                    className="flex size-full items-center justify-center font-mono text-7xl font-medium tracking-[-0.06em] text-zinc-700"
+                  >
+                    MJA
+                  </div>
+                )}
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 shadow-[inset_0_0_48px_rgba(0,0,0,0.55)]"
+                />
+                <Corner className="left-2.5 top-2.5 border-l border-t" />
+                <Corner className="right-2.5 top-2.5 border-r border-t" />
+
+                <p className="absolute bottom-3 left-3 right-3 flex w-fit max-w-full items-center gap-2.5 rounded-full border border-white/10 bg-black/60 py-1.5 pl-3 pr-4 text-[12px] text-zinc-200 backdrop-blur">
+                  <span className="relative flex size-2 shrink-0">
+                    <span
+                      aria-hidden="true"
+                      className="absolute inline-flex size-full rounded-full bg-emerald-400 opacity-75 motion-safe:animate-ping"
+                    />
+                    <span
+                      aria-hidden="true"
+                      className="relative inline-flex size-2 rounded-full bg-emerald-400"
+                    />
+                  </span>
+                  <span className="truncate">
+                    {profile.availability} · {profile.location}
+                  </span>
+                </p>
+              </div>
+            </SpotlightCard>
+          </motion.div>
+
+          {/* Headline */}
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            animate="show"
+            className="order-1 col-span-12 lg:order-2 lg:col-span-7"
+          >
+            <motion.h1
+              id="hero-heading"
+              variants={rise}
+              className="text-4xl font-medium leading-[1.06] tracking-[-0.04em] text-zinc-100 md:text-5xl lg:text-[3.5rem]"
+            >
+              {profile.identity}
+            </motion.h1>
+
+            <motion.p
+              variants={rise}
+              className="mt-6 max-w-[48ch] text-base leading-relaxed text-zinc-400 md:text-lg"
+            >
+              {profile.tagline}
+            </motion.p>
+
+            <motion.div
+              variants={rise}
+              className="mt-9 flex flex-wrap items-center gap-3"
+            >
+              <a
+                href={`mailto:${profile.email}`}
+                className="group inline-flex h-11 items-center gap-2 rounded-lg bg-zinc-100 px-5 text-sm font-medium text-zinc-900 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] transition-colors hover:bg-white"
+              >
+                Let&apos;s Talk
+                <span
+                  aria-hidden="true"
+                  className="transition-transform motion-safe:group-hover:translate-x-0.5"
+                >
+                  →
+                </span>
+              </a>
+              <a
+                href={profile.cvPath}
+                download
+                className="inline-flex h-11 items-center gap-2 rounded-lg border border-white/[0.14] bg-white/[0.03] px-5 text-sm font-medium text-zinc-100 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] transition-colors hover:border-white/30 hover:bg-white/[0.07]"
+              >
+                Download CV
+                <span aria-hidden="true">↓</span>
+              </a>
+            </motion.div>
+          </motion.div>
         </div>
-      </motion.section>
+      </section>
     </MotionConfig>
   );
 }

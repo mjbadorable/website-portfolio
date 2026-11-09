@@ -16,11 +16,11 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#f8fafc",
-          borderLeft: "24px solid #2c469a",
+          background: "#09090b",
+          borderLeft: "24px solid #3f3f46",
         }}
       >
-        <div style={{ display: "flex", fontSize: 30, color: "#475569" }}>
+        <div style={{ display: "flex", fontSize: 30, color: "#a1a1aa" }}>
           {profile.name}
         </div>
         <div
@@ -30,7 +30,7 @@ export default function OpengraphImage() {
             fontSize: 76,
             fontWeight: 700,
             lineHeight: 1.1,
-            color: "#0f172a",
+            color: "#f4f4f5",
           }}
         >
           {profile.identity}
