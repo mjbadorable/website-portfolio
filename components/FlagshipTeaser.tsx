@@ -35,7 +35,7 @@ export function FlagshipTeaser() {
           <div className="lift rounded-lg border border-line bg-surface p-5 shadow-[inset_0_1px_0_0_var(--highlight)] hover:border-line-strong">
             <div className="flex items-center justify-between gap-3">
               <span className={`${META} text-muted`}>collabworkspace.dev</span>
-              <HealthPing url={cw.url} />
+              <HealthPing url={cw.probeUrl} />
             </div>
             <ul className="mt-4 flex flex-wrap gap-1.5">
               {cw.hood.map((t) => (

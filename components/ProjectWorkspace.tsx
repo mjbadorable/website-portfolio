@@ -14,7 +14,7 @@ const META = "font-mono text-[11px] uppercase tracking-[0.18em]";
 const ADDRESS = "collabworkspace.dev/control-plane";
 
 export function ProjectWorkspace() {
-  const health = useHealth(cw.url);
+  const health = useHealth(cw.probeUrl);
   const { motionEnabled } = useThemeMotion();
   const [sel, setSel] = useState(0);
   const project = cw.registered[sel];

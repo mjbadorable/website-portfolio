@@ -6,6 +6,8 @@ export const collabWorkspace = {
   label: "FLAGSHIP BUILD · COLLAB.WORKSPACE",
   name: "Collab Workspace",
   url: "https://www.collabworkspace.dev",
+  // Reachability probe target: the root sits behind the AuthGate, /login is public.
+  probeUrl: "https://www.collabworkspace.dev/login",
   subtitle:
     "The developer control plane and command center I built to plan, architect, monitor, and manage decoupled software projects from a single unified portal.",
   hood: [
