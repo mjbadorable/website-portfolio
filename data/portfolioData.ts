@@ -237,7 +237,7 @@ export const talksAndTraining: {
     {
       title: "Hands-On LMS & Academic System Laboratory Onboarding",
       format: "On-Site Computer Lab Training",
-      audience: "Faculty and Staff",
+      audience: "Academic Staff",
       platforms: ["NEO LMS", "MasterSoft"],
       description:
         "Guided educators and staff through live, step-by-step system navigation, portal workflows, and digital classroom setup inside university computer laboratories.",
@@ -304,15 +304,14 @@ export const talksAndTraining: {
       title: "Educational & Assessment Tools",
       capacity: "Technical Support & Software Orientation",
       platformLabel: "Tools",
-      platforms: ["Turnitin", "Digital Quiz Tools", "SCUOLA"],
-      audience: "Faculty and Staff",
+      platforms: ["Turnitin", "Digital Quiz Tools"],
+      audience: "Academic Staff",
       description:
         "Explore digital assessment, plagiarism checking, online quizzes, and supplementary software for teaching.",
       topics: [
         "Turnitin originality checking",
         "Digital assessment workflows",
-        "Online quizzes",
-        "SCUOLA LMS platform orientation",
+        "Online quizzes & evaluations",
         "Technology-assisted teaching",
       ],
     },
@@ -377,7 +376,7 @@ export const journalEntries: JournalEntry[] = [
       "Faculty course creation, gradebook configuration & student onboarding",
       "Institutional system pilot testing & feedback gathering (OBE / WFDMS)",
       "Student Information System grade encoding guidance (MasterSoft SIS)",
-      "Educational assessment tool orientation (Turnitin / SCUOLA)",
+      "Educational assessment tool orientation (Turnitin & digital evaluation tools)",
     ],
     tags: [
       "EdTech Operations",
