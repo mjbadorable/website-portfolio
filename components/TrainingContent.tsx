@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import type { TrainingArea, TrainingEvent } from "@/data/portfolioData";
 
 const META = "font-mono text-xs uppercase tracking-[0.14em]";
@@ -62,44 +63,69 @@ function AreaCard({ area }: { area: TrainingArea }) {
 
 function Highlight({ e }: { e: TrainingEvent }) {
   return (
-    <li className="lift rounded-xl border border-line-strong bg-tint-2 p-6 shadow-[inset_0_1px_0_0_var(--highlight)] sm:p-7">
-      <div className="flex flex-wrap items-center gap-2">
-        {e.format && (
-          <span className="inline-flex items-center rounded border border-line bg-tint px-2.5 py-1 font-mono text-xs text-fg">
-            {e.format}
-          </span>
-        )}
-        {e.year && <span className={`${META} text-muted`}>{e.year}</span>}
-      </div>
+    <li className="lift overflow-hidden rounded-xl border border-line-strong bg-tint-2 p-6 shadow-[inset_0_1px_0_0_var(--highlight)] sm:p-7">
+      <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
+        <div className={e.image ? "lg:col-span-7" : "lg:col-span-12"}>
+          <div className="flex flex-wrap items-center gap-2">
+            {e.format && (
+              <span className="inline-flex items-center rounded border border-line bg-tint px-2.5 py-1 font-mono text-xs text-fg">
+                {e.format}
+              </span>
+            )}
+            {e.year && <span className={`${META} text-muted`}>{e.year}</span>}
+          </div>
 
-      <h4 className="mt-4 max-w-[34ch] text-2xl font-semibold leading-[1.12] tracking-[-0.03em] text-fg">
-        {e.title}
-      </h4>
+          <h4 className="mt-4 max-w-[34ch] text-2xl font-semibold leading-[1.12] tracking-[-0.03em] text-fg">
+            {e.title}
+          </h4>
 
-      <dl className="mt-4 space-y-3">
-        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <dt className={`${META} w-20 shrink-0 text-muted`}>Audience</dt>
-          <dd className="text-sm text-fg-2">{e.audience}</dd>
+          <dl className="mt-4 space-y-3">
+            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <dt className={`${META} w-20 shrink-0 text-muted`}>Audience</dt>
+              <dd className="text-sm text-fg-2">{e.audience}</dd>
+            </div>
+            {e.platforms && (
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                <dt className={`${META} w-20 shrink-0 text-muted`}>Platforms</dt>
+                <dd>
+                  <ul className="flex flex-wrap gap-1.5">
+                    {e.platforms.map((p) => (
+                      <li key={p} className={chip}>
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+            )}
+          </dl>
+
+          <p className="mt-5 max-w-[62ch] border-t border-line pt-4 text-sm leading-relaxed text-fg-2">
+            {e.description}
+          </p>
         </div>
-        {e.platforms && (
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-            <dt className={`${META} w-20 shrink-0 text-muted`}>Platforms</dt>
-            <dd>
-              <ul className="flex flex-wrap gap-1.5">
-                {e.platforms.map((p) => (
-                  <li key={p} className={chip}>
-                    {p}
-                  </li>
-                ))}
-              </ul>
-            </dd>
+
+        {e.image && (
+          <div className="lg:col-span-5">
+            <figure className="overflow-hidden rounded-lg border border-line bg-surface shadow-[inset_0_1px_0_0_var(--highlight)]">
+              <div className="relative aspect-[16/9] w-full overflow-hidden">
+                <Image
+                  src={e.image.src}
+                  alt={e.image.alt}
+                  fill
+                  sizes="(min-width: 1024px) 380px, 100vw"
+                  className="object-cover transition-transform duration-500 hover:scale-[1.02]"
+                />
+              </div>
+              {e.image.caption && (
+                <figcaption className="border-t border-line bg-tint/50 px-3.5 py-2 font-mono text-[11px] text-muted">
+                  {e.image.caption}
+                </figcaption>
+              )}
+            </figure>
           </div>
         )}
-      </dl>
-
-      <p className="mt-5 max-w-[62ch] border-t border-line pt-4 text-sm leading-relaxed text-fg-2">
-        {e.description}
-      </p>
+      </div>
     </li>
   );
 }

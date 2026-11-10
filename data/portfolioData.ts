@@ -205,6 +205,7 @@ export type TrainingEvent = {
   audience: string;
   platforms?: string[];
   description: string;
+  image?: { src: string; alt: string; caption?: string };
   /** Only `published: true` entries may be rendered publicly. */
   published: boolean;
 };
@@ -239,6 +240,11 @@ export const talksAndTraining: {
       platforms: ["NEO LMS", "MasterSoft"],
       description:
         "Guided educators and staff through live, step-by-step system navigation, portal workflows, and digital classroom setup inside university computer laboratories.",
+      image: {
+        src: "/marvin-training.jpg",
+        alt: "Marvin Jhay Adorable facilitating an on-site computer laboratory training session",
+        caption: "Live facilitation and system walkthrough during an institutional computer lab session.",
+      },
       published: true,
     },
     {
