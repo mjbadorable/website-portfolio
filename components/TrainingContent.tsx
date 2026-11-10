@@ -25,7 +25,10 @@ function AreaCard({ area }: { area: TrainingArea }) {
         {area.title}
       </h4>
       <p className="mt-3 inline-flex w-fit max-w-full rounded border border-line-strong bg-tint-2 px-2.5 py-1 font-mono text-xs text-fg">
-        [ Capacity: {area.capacity} ]
+        <span className="text-muted mr-1">[</span>
+        <span className="text-muted mr-1.5">Capacity:</span>
+        <span>{area.capacity}</span>
+        <span className="text-muted ml-1">]</span>
       </p>
 
       <dl className="mt-4 space-y-3">
