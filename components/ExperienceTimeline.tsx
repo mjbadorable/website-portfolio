@@ -95,53 +95,78 @@ export function ExperienceTimeline() {
           [ Academic credentials // Education ]
         </SectionLabel>
 
-        <ul className="mt-10 grid gap-6 md:grid-cols-2">
+        <ul className="mt-10 grid gap-6 lg:grid-cols-2">
           {education.map((e) => (
             <li
               key={e.degree}
-              className="lift flex flex-col rounded-xl border border-line bg-surface p-6 shadow-[inset_0_1px_0_0_var(--highlight)] hover:border-line-strong sm:p-7"
+              className="lift flex flex-col justify-between rounded-xl border border-line bg-surface p-6 shadow-[inset_0_1px_0_0_var(--highlight)] hover:border-line-strong sm:p-7"
             >
-              <p className={`${META} text-muted`}>
-                {e.status}
-                {e.mode ? ` · ${e.mode}` : ""}
-              </p>
-              <h3 className="mt-3 text-xl font-semibold leading-[1.15] tracking-[-0.03em] text-fg">
-                {e.degree}
-              </h3>
-              <p className="mt-2 text-sm text-fg-2">{e.institution}</p>
+              <div>
+                {/* 1. Status */}
+                <div className="flex min-h-7 flex-wrap items-center gap-2">
+                  <p className={`${META} text-muted`}>{e.status}</p>
+                  {e.mode && (
+                    <span className="rounded border border-line bg-tint px-2 py-0.5 font-mono text-xs text-fg-2">
+                      {e.mode}
+                    </span>
+                  )}
+                </div>
 
-              {e.specialization && (
-                <p className="mt-4 text-sm font-medium text-fg">
-                  {e.specialization}
+                {/* 2. Degree + institution */}
+                <h3 className="mt-3 text-xl font-semibold leading-[1.15] tracking-[-0.03em] text-fg">
+                  {e.degree}
+                </h3>
+                <p className="mt-1 text-sm font-medium text-fg-2">
+                  {e.institution}
                 </p>
-              )}
-              {e.thesis && (
-                <p className="mt-3 text-sm leading-relaxed text-fg-2">
-                  <span className={`${META} block text-muted`}>Thesis</span>
-                  <span className="mt-1 block">{e.thesis}</span>
-                </p>
-              )}
+
+                {/* 3. Focus areas / specialization */}
+                <div className="mt-5">
+                  <p className={`${META} text-muted`}>
+                    {e.focusAreas ? "Focus areas" : "Specialization"}
+                  </p>
+                  {e.focusAreas ? (
+                    <ul className="mt-2 flex flex-wrap gap-1.5">
+                      {e.focusAreas.map((f) => (
+                        <li key={f} className={tag}>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : e.specialization ? (
+                    <p className="mt-2 inline-flex rounded border border-line-strong bg-tint-2 px-2.5 py-1 font-mono text-xs text-fg shadow-[inset_0_1px_0_0_var(--highlight)]">
+                      {e.specialization}
+                    </p>
+                  ) : null}
+                </div>
+
+                {/* 4. Thesis, or graduate coursework direction */}
+                <div className="mt-4 rounded-md border border-line bg-tint/40 p-3.5">
+                  <span className={`${META} block text-muted`}>
+                    {e.thesis ? "Undergraduate Thesis" : "Graduate Studies"}
+                  </span>
+                  <p className="mt-1 text-sm leading-relaxed text-fg-2">
+                    {e.thesis ?? e.description}
+                  </p>
+                </div>
+              </div>
+
+              {/* 5. Honors (only where confirmed) */}
               {e.awards && (
-                <ul aria-label="Awards" className="mt-4 flex flex-wrap gap-1.5">
-                  {e.awards.map((a) => (
-                    <li
-                      key={a}
-                      className="rounded border border-line-strong bg-tint-2 px-2 py-0.5 font-mono text-xs text-fg"
-                    >
-                      {a}
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {e.focusAreas ? (
-                <p className="mt-4 text-sm leading-relaxed text-muted">
-                  <span className="text-fg-2">Focus: </span>
-                  {e.focusAreas.join(", ")}.
-                </p>
-              ) : (
-                <div className="mt-auto">
-                  <Tags items={e.tags} label="Tags" />
+                <div className="mt-5">
+                  <p className={`${META} text-muted`}>
+                    [ Honors &amp; Recognition ]
+                  </p>
+                  <ul aria-label="Awards" className="mt-2 flex flex-wrap gap-1.5">
+                    {e.awards.map((a) => (
+                      <li
+                        key={a}
+                        className="rounded border border-line-strong bg-tint-2 px-2.5 py-1 font-mono text-xs text-fg shadow-[inset_0_1px_0_0_var(--highlight)]"
+                      >
+                        {a}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
             </li>
