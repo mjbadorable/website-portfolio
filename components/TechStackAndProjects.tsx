@@ -55,7 +55,11 @@ export function TechStackAndProjects() {
               <div
                 key={c.key}
                 className={`col-span-12 bg-canvas p-5 sm:p-6 ${
-                  i === 0 || i === 3 ? "lg:col-span-7" : "lg:col-span-5"
+                  i === 0 || i === 1
+                    ? "lg:col-span-6"
+                    : i === 2
+                    ? "lg:col-span-5"
+                    : "lg:col-span-7"
                 }`}
               >
                 <h3 className={`${META} text-muted`}>
