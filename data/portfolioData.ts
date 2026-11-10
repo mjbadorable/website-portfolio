@@ -238,7 +238,7 @@ export const talksAndTraining: {
       title: "Hands-On LMS & Academic System Laboratory Onboarding",
       format: "On-Site Computer Lab Training",
       audience: "Faculty and Staff",
-      platforms: ["NEO LMS", "CYPHER", "MasterSoft"],
+      platforms: ["NEO LMS", "MasterSoft"],
       description:
         "Guided educators and staff through live, step-by-step system navigation, portal workflows, and digital classroom setup inside university computer laboratories.",
       published: true,
@@ -256,7 +256,7 @@ export const talksAndTraining: {
       title: "LMS Training & Onboarding",
       capacity: "Technical Support & Faculty Onboarding",
       platformLabel: "Platforms",
-      platforms: ["NEO LMS", "CYPHER"],
+      platforms: ["NEO LMS"],
       audience: "Faculty and Students",
       description:
         "Learn how to create classes, manage course materials, enroll students, and use online learning tools.",
@@ -302,7 +302,7 @@ export const talksAndTraining: {
     },
     {
       title: "Educational & Assessment Tools",
-      capacity: "System QA & Workflow Validation",
+      capacity: "Technical Support & Software Orientation",
       platformLabel: "Tools",
       platforms: ["Turnitin", "Digital Quiz Tools", "SCUOLA"],
       audience: "Faculty and Staff",
@@ -373,7 +373,7 @@ export const journalEntries: JournalEntry[] = [
     description:
       "Started my professional career supporting university educational technology systems, enterprise LMS operations, academic workflows, and faculty and staff onboarding.",
     details: [
-      "LMS administration & navigation support (NEO LMS / CYPHER)",
+      "LMS administration & navigation support (NEO LMS)",
       "Faculty course creation, gradebook configuration & student onboarding",
       "Institutional system pilot testing & feedback gathering (OBE / WFDMS)",
       "Student Information System grade encoding guidance (MasterSoft SIS)",

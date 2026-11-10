@@ -62,6 +62,11 @@ export function Contact() {
                 <CopyButton text={profile.email} />
               </div>
 
+              <p className="mt-5 max-w-[52ch] text-sm leading-relaxed text-fg-2">
+                Open for full-stack software development, university-scale
+                educational technology systems, and AI automation workflows.
+              </p>
+
               <ul className="mt-7 flex flex-wrap gap-3">
                 {profile.links.map((link) => (
                   <li key={link.label}>

@@ -120,6 +120,8 @@ export const recentProjects: RecentProject[] = [
     description:
       "An offline-first grading assistant for university faculty to compute, validate, and batch-encode student grades into the Mastersoft ERP system with automated formula transmutation.",
     points: ["Formula validation", "Spreadsheet grid", "328 tests"],
+    architectureSummary:
+      "Excel / CSV class record ingestion ➔ Formula transmutation engine ➔ Spreadsheet grid editor ➔ Verified MasterSoft ERP upload batch.",
   },
   {
     host: "convex-budget.app",
@@ -149,6 +151,8 @@ export const recentProjects: RecentProject[] = [
     description:
       "A Python backend API for managing tasks, built with FastAPI and SQLAlchemy on a SQLite database.",
     points: ["FastAPI", "SQLAlchemy ORM", "SQLite"],
+    architectureSummary:
+      "FastAPI REST endpoints ➔ Pydantic request validation ➔ SQLAlchemy ORM models ➔ SQLite persistence layer.",
   },
   {
     host: "air-quality-station.local",
