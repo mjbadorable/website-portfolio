@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = `${profile.name} — AI Systems Builder & Full-Stack Automation Engineer`;
+const title = `${profile.name} — Computer Engineer & AI Systems Builder`;
 const description =
-  "Computer engineer and AI systems builder developing resilient full-stack web platforms, deterministic workflow automations, and educational technology enablement.";
+  "Computer Engineer building software, intelligent systems, and meaningful digital experiences across educational technology, full-stack web platforms, and automated workflows.";
 
 export const metadata: Metadata = {
   // Falls back to the live Vercel URL; set NEXT_PUBLIC_SITE_URL once a custom domain is attached.
