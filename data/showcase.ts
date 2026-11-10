@@ -9,7 +9,7 @@ export const collabWorkspace = {
   // Reachability probe target: the root sits behind the AuthGate, /login is public.
   probeUrl: "https://www.collabworkspace.dev/login",
   subtitle:
-    "A unified developer control plane and command center integrating project Kanban tracking, live GitHub commit telemetry, and system architecture visualization.",
+    "Unified developer control plane with real-time Kanban tracking, live GitHub telemetry, and architecture mapping.",
   hood: [
     "Next.js",
     "TypeScript",
@@ -24,7 +24,7 @@ export const collabWorkspace = {
       id: "mastersoft",
       name: "Mastersoft Grade Assistant",
       description:
-        "Faculty grade computation and validation assistant with Mastersoft ERP transmutation formula verification.",
+        "Faculty grade computation and validation for MasterSoft ERP.",
       lanes: [
         { label: "Plan", pct: 100 },
         { label: "Architect", pct: 100 },
@@ -37,7 +37,7 @@ export const collabWorkspace = {
       id: "budget",
       name: "EDTECH Budget System",
       description:
-        "Fiscal allocation and purchase request engine with real-time Convex cloud sync and Excel ingestion.",
+        "Budget and purchase-request tracking with Convex cloud sync.",
       lanes: [
         { label: "Plan", pct: 100 },
         { label: "Architect", pct: 90 },
@@ -118,7 +118,7 @@ export const recentProjects: RecentProject[] = [
     repo: "https://github.com/mjbadorable/Mastersoft-Grade-Encoding-Assistant",
     title: "Mastersoft Grade Assistant v2.0",
     description:
-      "An offline-first grading assistant for university faculty to compute, validate, and batch-encode student grades into the Mastersoft ERP system with automated formula transmutation.",
+      "Offline-first grading tool for university faculty to compute, validate, and batch-encode grades into MasterSoft ERP.",
     points: ["Formula validation", "Spreadsheet grid", "328 tests"],
     architectureSummary:
       "Excel / CSV class record ingestion ➔ Formula transmutation engine ➔ Spreadsheet grid editor ➔ Verified MasterSoft ERP upload batch.",
@@ -127,7 +127,7 @@ export const recentProjects: RecentProject[] = [
     host: "convex-budget.app",
     title: "Reactive Budget & Expense Monitoring",
     description:
-      "An institutional budget and purchase request tracker with real-time Convex cloud synchronization, multi-tab Excel workbook ingestion, and live fiscal allocation telemetry.",
+      "Institutional budget tracker with real-time Convex cloud sync and multi-tab Excel import.",
     points: ["Convex cloud sync", "Multi-tab Excel importer", "707 tests"],
     architectureSummary:
       "Local state ➔ Convex reactive mutations ➔ Multi-tab XLSX schema mapping ➔ Real-time fiscal telemetry.",
@@ -136,7 +136,7 @@ export const recentProjects: RecentProject[] = [
     host: "exam-reviewer.app",
     title: "Exam Reviewer Platform",
     description:
-      "An offline-ready exam reviewer PWA featuring split-screen PDF question browsing, automated bubble-sheet scoring, and client-side Dexie IndexedDB state persistence.",
+      "Offline-ready exam reviewer with split-screen PDF viewing and automated bubble-sheet scoring.",
     points: [
       "Split-screen PDF.js viewer",
       "Bubble-sheet scoring engine",
@@ -149,7 +149,7 @@ export const recentProjects: RecentProject[] = [
     host: "task-management-api.local",
     title: "Task Management API",
     description:
-      "A Python backend API for managing tasks, built with FastAPI and SQLAlchemy on a SQLite database.",
+      "Python task-management API built with FastAPI, SQLAlchemy, and SQLite.",
     points: ["FastAPI", "SQLAlchemy ORM", "SQLite"],
     architectureSummary:
       "FastAPI REST endpoints ➔ Pydantic request validation ➔ SQLAlchemy ORM models ➔ SQLite persistence layer.",
@@ -158,7 +158,7 @@ export const recentProjects: RecentProject[] = [
     host: "air-quality-station.local",
     title: "Outdoor Air Quality Monitoring Station",
     description:
-      "My embedded-systems thesis: a real-time outdoor air quality monitor with a notification system, designed for transport terminals.",
+      "Embedded-systems thesis: real-time outdoor air quality monitoring with notifications for transport terminals.",
     points: ["Embedded systems", "Real-time monitoring", "Notification system"],
     architectureSummary:
       "Hardware sensor array ➔ Terminal telemetry sampling ➔ Notification trigger engine.",

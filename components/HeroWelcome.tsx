@@ -156,13 +156,9 @@ export function HeroWelcome() {
               className="mt-7 max-w-[54ch] space-y-4 text-base leading-[1.9] text-fg-2 md:text-lg"
             >
               <p>
-                I&apos;m a Computer Engineer from Iloilo, Philippines, working
-                across software development, educational technology, and AI
-                automation.
-              </p>
-              <p>
-                I enjoy turning complex processes into simple, reliable tools
-                that solve real-world problems.
+                Computer Engineer based in Iloilo, Philippines. I build
+                production web applications, streamline institutional
+                workflows, and develop practical AI tools.
               </p>
             </motion.div>
 

@@ -90,22 +90,22 @@ export const experienceRoles: ExperienceRole[] = [
     organization: "University of San Agustin",
     period: "May 2024 – Present",
     description:
-      "Provides institutional educational technology administration, system quality assurance, and faculty enablement across academic platforms at the University of San Agustin.",
+      "Manages LMS and ERP support, runs manual UAT for system rollouts, and enables faculty at University of San Agustin.",
     contributions: [
       {
         title: "Enterprise Academic Systems",
         detail:
-          "Administers user accounts, handles Zoho Help Desk issue triage, and supports faculty MasterSoft ERP grade encoding.",
+          "Administers accounts, triages Zoho Help Desk tickets, and supports MasterSoft ERP grade encoding.",
       },
       {
         title: "System QA & Rollouts",
         detail:
-          "Performs User Acceptance Testing (UAT) and manual workflow validation for university system rollouts (OBE (Outcomes-Based Education) and WFDMS (Web-Based Faculty Deliverables Monitoring System) pilots).",
+          "Runs UAT and workflow validation for pilots of OBE (Outcomes-Based Education) and WFDMS (Web-Based Faculty Deliverables Monitoring System).",
       },
       {
-        title: "Enablement & Technical Documentation",
+        title: "Enablement & Documentation",
         detail:
-          "Authors step-by-step SOP guides, knowledge base documentation, and conducts hands-on onboarding for faculty and students.",
+          "Writes SOP guides and runs hands-on onboarding for faculty and students.",
       },
     ],
     tags: [
@@ -233,7 +233,7 @@ export const talksAndTraining: {
     label: "Training & Enablement",
     headline: "Making academic technology easier to use.",
     description:
-      "Supporting faculty, students, and university teams through system onboarding, LMS guidance, academic workflows, and practical instructional resources.",
+      "Hands-on platform onboarding, grading system guidance, and digital tool enablement for academic staff.",
   },
   confirmedTrainingEvents: [
     {
