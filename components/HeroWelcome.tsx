@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Download } from "lucide-react";
+import { track } from "@vercel/analytics";
 import { MotionConfig, motion, useReducedMotion, type Variants } from "framer-motion";
 import { profile } from "@/data/portfolioData";
 import { profile as contact } from "@/data/profile";
@@ -186,6 +187,7 @@ export function HeroWelcome() {
             >
               <PressLink
                 href="/projects"
+                onClick={() => track("explore_projects", { location: "hero" })}
                 className="group inline-flex h-11 items-center gap-2 rounded-md bg-accent px-5 text-sm font-medium text-accent-fg transition-colors hover:bg-accent/90"
               >
                 Explore Projects
@@ -197,6 +199,7 @@ export function HeroWelcome() {
               <PressA
                 href={profile.cv}
                 download
+                onClick={() => track("download_cv", { location: "hero" })}
                 className="inline-flex h-11 items-center gap-2 rounded-md border border-line bg-tint px-5 text-sm font-medium text-fg shadow-[inset_0_1px_0_0_var(--highlight)] transition-colors hover:border-line-strong hover:bg-surface-hover"
               >
                 Download CV

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { recentProjects, stack } from "@/data/showcase";
 
 const META = "font-mono text-[11px] uppercase tracking-[0.18em]";
@@ -114,6 +114,35 @@ export function TechStackAndProjects() {
                       </li>
                     ))}
                   </ul>
+                  {p.architectureSummary && (
+                    <details className="group mt-4 border-t border-line pt-3">
+                      <summary
+                        className={`${META} flex cursor-pointer list-none items-center justify-between gap-2 text-fg-2 hover:text-fg [&::-webkit-details-marker]:hidden`}
+                      >
+                        Architecture pipeline
+                        <ChevronDown
+                          aria-hidden="true"
+                          className="size-3.5 transition-transform group-open:rotate-180"
+                        />
+                      </summary>
+                      <ol className="mt-3 space-y-1.5">
+                        {p.architectureSummary
+                          .replace(/\.$/, "")
+                          .split("➔")
+                          .map((step, n) => (
+                            <li
+                              key={step}
+                              className="flex gap-2 font-mono text-xs leading-relaxed text-fg-2"
+                            >
+                              <span aria-hidden="true" className="text-muted">
+                                {n === 0 ? "▸" : "➔"}
+                              </span>
+                              {step.trim()}
+                            </li>
+                          ))}
+                      </ol>
+                    </details>
+                  )}
                   <div className="mt-auto flex flex-wrap items-center gap-2 pt-5">
                     {p.href && (
                       <a

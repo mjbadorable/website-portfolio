@@ -100,7 +100,7 @@ export const experienceRoles: ExperienceRole[] = [
       {
         title: "System QA & Rollouts",
         detail:
-          "Performs User Acceptance Testing (UAT) and manual workflow validation for university system rollouts (OBE, WFDMS pilots).",
+          "Performs User Acceptance Testing (UAT) and manual workflow validation for university system rollouts (OBE (Outcomes-Based Education) and WFDMS (Web-Based Faculty Deliverables Monitoring System) pilots).",
       },
       {
         title: "Enablement & Technical Documentation",
@@ -217,6 +217,8 @@ export type TrainingArea = {
   platforms: string[];
   audience: string;
   description: string;
+  /** Marvin's exact capacity in this area. */
+  capacity: string;
   topics: string[];
 };
 
@@ -252,6 +254,7 @@ export const talksAndTraining: {
   trainingEnablementAreas: [
     {
       title: "LMS Training & Onboarding",
+      capacity: "Technical Support & Faculty Onboarding",
       platformLabel: "Platforms",
       platforms: ["NEO LMS", "CYPHER"],
       audience: "Faculty and Students",
@@ -269,11 +272,12 @@ export const talksAndTraining: {
     },
     {
       title: "Academic System Orientation",
+      capacity: "System QA & Workflow Validation",
       platformLabel: "Systems",
       platforms: ["OBE", "WFDMS"],
       audience: "Faculty, Deans, and Academic Supervisors",
       description:
-        "Understand new university platforms, explore their workflows, participate in pilot testing, and learn how academic processes are handled.",
+        "Understand new university platforms such as OBE (Outcomes-Based Education) and WFDMS (Web-Based Faculty Deliverables Monitoring System), explore their workflows, participate in pilot testing, and learn how academic processes are handled.",
       topics: [
         "New platform orientation",
         "Pilot testing and feedback gathering",
@@ -283,6 +287,7 @@ export const talksAndTraining: {
     },
     {
       title: "Grade Encoding & Academic Workflows",
+      capacity: "Technical Support & Faculty Onboarding",
       platformLabel: "Platform",
       platforms: ["MasterSoft"],
       audience: "Faculty and Academic Heads",
@@ -297,6 +302,7 @@ export const talksAndTraining: {
     },
     {
       title: "Educational & Assessment Tools",
+      capacity: "System QA & Workflow Validation",
       platformLabel: "Tools",
       platforms: ["Turnitin", "Digital Quiz Tools", "SCUOLA"],
       audience: "Faculty and Staff",
@@ -306,7 +312,7 @@ export const talksAndTraining: {
         "Turnitin originality checking",
         "Digital assessment workflows",
         "Online quizzes",
-        "SCUOLA software orientation",
+        "SCUOLA LMS platform orientation",
         "Technology-assisted teaching",
       ],
     },

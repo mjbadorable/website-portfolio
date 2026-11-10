@@ -104,6 +104,8 @@ export type RecentProject = {
   host: string; // address-bar text; only `href` projects are real, live sites
   href?: string; // live demo
   repo?: string; // public source repository
+  /** High-level data flow for builds without a public link. Steps split on "➔". */
+  architectureSummary?: string;
   title: string;
   description: string;
   points: string[];
@@ -125,6 +127,8 @@ export const recentProjects: RecentProject[] = [
     description:
       "An institutional budget and purchase request tracker with real-time Convex cloud synchronization, multi-tab Excel workbook ingestion, and live fiscal allocation telemetry.",
     points: ["Convex cloud sync", "Multi-tab Excel importer", "707 tests"],
+    architectureSummary:
+      "Local state ➔ Convex reactive mutations ➔ Multi-tab XLSX schema mapping ➔ Real-time fiscal telemetry.",
   },
   {
     host: "exam-reviewer.app",
@@ -136,6 +140,8 @@ export const recentProjects: RecentProject[] = [
       "Bubble-sheet scoring engine",
       "Client-side Dexie v4 offline database",
     ],
+    architectureSummary:
+      "Local PDF load ➔ Client-side PDF.js rendering ➔ Bubble sheet key matcher ➔ Dexie IndexedDB cache.",
   },
   {
     host: "task-management-api.local",
@@ -150,5 +156,7 @@ export const recentProjects: RecentProject[] = [
     description:
       "My embedded-systems thesis: a real-time outdoor air quality monitor with a notification system, designed for transport terminals.",
     points: ["Embedded systems", "Real-time monitoring", "Notification system"],
+    architectureSummary:
+      "Hardware sensor array ➔ Terminal telemetry sampling ➔ Notification trigger engine.",
   },
 ];

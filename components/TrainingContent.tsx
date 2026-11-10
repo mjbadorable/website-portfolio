@@ -24,6 +24,9 @@ function AreaCard({ area }: { area: TrainingArea }) {
       <h4 className="text-xl font-semibold leading-[1.15] tracking-[-0.03em] text-fg">
         {area.title}
       </h4>
+      <p className="mt-3 inline-flex w-fit max-w-full rounded border border-line-strong bg-tint-2 px-2.5 py-1 font-mono text-[11px] text-fg">
+        [ Capacity: {area.capacity} ]
+      </p>
 
       <dl className="mt-4 space-y-3">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
