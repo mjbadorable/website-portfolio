@@ -65,8 +65,12 @@ export function ExperienceTimeline() {
 
               {r.contributions && (
                 <ul
-                  aria-label="Project highlights"
-                  className="mt-6 grid gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-2"
+                  aria-label="Highlights"
+                  className={`mt-6 grid gap-px overflow-hidden rounded-lg border border-line bg-line ${
+                    r.contributions.length >= 3
+                      ? "md:grid-cols-3"
+                      : "sm:grid-cols-2"
+                  }`}
                 >
                   {r.contributions.map((c) => (
                     <li key={c.title} className="bg-canvas p-4">

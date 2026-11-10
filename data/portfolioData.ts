@@ -15,7 +15,8 @@ export const profile: PortfolioProfile = {
   location: "Iloilo, PH // GMT+8",
   photo: "/marvin.jpg",
   cv: "/marvin-adorable-cv.pdf",
-  availability: "Available for AI Automation & Web Systems",
+  availability:
+    "Computer Engineer · MS CpE Candidate @ Mapúa · EdTech & Systems Developer",
   email: base.email,
   badges: {
     credential: "BS CpE '23 / MS Candidate",
@@ -89,7 +90,24 @@ export const experienceRoles: ExperienceRole[] = [
     organization: "University of San Agustin",
     period: "May 2024 – Present",
     description:
-      "Provides institutional educational technology support across LMS platforms and enterprise academic systems. Conducts user onboarding and training for faculty and students, manages user account provisioning, performs User Acceptance Testing (UAT) and QA for university system rollouts (OBE, WFDMS), and authors technical documentation and knowledge base guides.",
+      "Provides institutional educational technology administration, system quality assurance, and faculty enablement across academic platforms at the University of San Agustin.",
+    contributions: [
+      {
+        title: "Enterprise Academic Systems",
+        detail:
+          "Administers user accounts, handles Zoho Help Desk issue triage, and supports faculty MasterSoft ERP grade encoding.",
+      },
+      {
+        title: "System QA & Rollouts",
+        detail:
+          "Performs User Acceptance Testing (UAT) and manual workflow validation for university system rollouts (OBE, WFDMS pilots).",
+      },
+      {
+        title: "Enablement & Technical Documentation",
+        detail:
+          "Authors step-by-step SOP guides, knowledge base documentation, and conducts hands-on onboarding for faculty and students.",
+      },
+    ],
     tags: [
       "NEO LMS",
       "User Acceptance Testing (UAT)",

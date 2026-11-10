@@ -80,11 +80,13 @@ export function TechStackAndProjects() {
         {/* Part 2: recent projects */}
         <div className="mt-14">
           <h3 className={`${META} text-fg-2`}>Recent projects</h3>
-          <ul className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-            {recentProjects.map((p) => (
+          <ul className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-6 lg:gap-6">
+            {recentProjects.map((p, i) => (
               <li
                 key={p.title}
-                className="lift flex flex-col overflow-hidden rounded-lg border border-line bg-surface shadow-[inset_0_1px_0_0_var(--highlight)] hover:border-line-strong"
+                className={`lift flex flex-col overflow-hidden rounded-lg border border-line bg-surface shadow-[inset_0_1px_0_0_var(--highlight)] hover:border-line-strong ${
+                  i < 3 ? "lg:col-span-2" : "lg:col-span-3"
+                } ${i === recentProjects.length - 1 && i % 2 === 0 ? "md:col-span-2" : ""}`}
               >
                 <div className="flex items-center gap-3 border-b border-line bg-tint px-3.5 py-2.5">
                   <Dots />

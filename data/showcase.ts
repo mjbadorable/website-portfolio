@@ -9,7 +9,7 @@ export const collabWorkspace = {
   // Reachability probe target: the root sits behind the AuthGate, /login is public.
   probeUrl: "https://www.collabworkspace.dev/login",
   subtitle:
-    "The developer control plane and command center I built to plan, architect, monitor, and manage decoupled software projects from a single unified portal.",
+    "A unified developer control plane and command center integrating project Kanban tracking, live GitHub commit telemetry, and system architecture visualization.",
   hood: [
     "Next.js",
     "TypeScript",

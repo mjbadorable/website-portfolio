@@ -124,7 +124,7 @@ export function HeroWelcome() {
           </span>
         </div>
 
-        <div className="relative grid grid-cols-12 items-center gap-8 p-6 sm:p-10 lg:gap-12 lg:p-14">
+        <div className="relative grid grid-cols-12 items-center gap-x-0 gap-y-8 p-6 sm:p-10 lg:gap-12 lg:p-14">
           {/* Intro */}
           <motion.div
             variants={stagger}
@@ -139,13 +139,13 @@ export function HeroWelcome() {
             <motion.h1
               id="hero-heading"
               variants={heading}
-              aria-label="Computer Engineer building software, intelligent systems, and meaningful digital experiences."
+              aria-label="Computer Engineer architecting web applications, educational technology systems, and AI workflows."
               className="mt-5 max-w-[22ch] text-balance text-4xl font-medium leading-[1.1] tracking-[-0.04em] text-fg sm:text-5xl lg:text-[3.35rem]"
             >
               <span aria-hidden="true">
-                <Words text="Computer Engineer building software, intelligent systems," />{" "}
+                <Words text="Computer Engineer architecting web applications," />{" "}
                 <span className="text-muted">
-                  <Words text="and meaningful digital experiences." />
+                  <Words text="educational technology systems, and AI workflows." />
                 </span>
               </span>
             </motion.h1>
@@ -185,10 +185,10 @@ export function HeroWelcome() {
               className="mt-9 flex flex-wrap items-center gap-3"
             >
               <PressLink
-                href="/contact"
+                href="/projects"
                 className="group inline-flex h-11 items-center gap-2 rounded-md bg-accent px-5 text-sm font-medium text-accent-fg transition-colors hover:bg-accent/90"
               >
-                Let&apos;s Talk
+                Explore Projects
                 <ArrowRight
                   aria-hidden="true"
                   className="size-4 transition-transform motion-safe:group-hover:translate-x-0.5"
@@ -209,9 +209,6 @@ export function HeroWelcome() {
               aria-label="More links"
               className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2"
             >
-              <li>
-                <SocialLink href="/projects">View Projects</SocialLink>
-              </li>
               {contact.links.map((l) => (
                 <li key={l.label}>
                   <SocialLink href={l.href} external>

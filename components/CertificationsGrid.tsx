@@ -10,13 +10,10 @@ export function CertificationsGrid() {
   return (
     <section
       id="certifications"
-      aria-labelledby="certs-heading"
+      aria-label="Certifications"
       className="py-10 text-fg lg:py-14"
     >
-      <h2 id="certs-heading" className={`${META} text-muted`}>
-        [ Certifications {"//"} Verified Credentials ]
-      </h2>
-      <p className="mt-4 max-w-[62ch] leading-relaxed text-fg-2">
+      <p className="max-w-[62ch] leading-relaxed text-fg-2">
         Industry and academic certifications in AI, cloud infrastructure,
         software testing, and educational technology — each verifiable at its
         issuing source.
@@ -30,9 +27,9 @@ export function CertificationsGrid() {
           return (
             <section key={category} aria-labelledby={id}>
               <div className="flex items-center gap-4">
-                <h3 id={id} className={`${META} text-fg-2`}>
+                <h2 id={id} className={`${META} text-fg-2`}>
                   {String(i + 1).padStart(2, "0")} {"//"} {category}
-                </h3>
+                </h2>
                 <span aria-hidden="true" className="h-px flex-1 bg-line" />
               </div>
 

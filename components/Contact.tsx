@@ -20,7 +20,7 @@ export function Contact() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_45%_at_15%_100%,var(--glow),transparent_70%)]"
       />
-      <div className="relative grid grid-cols-12 gap-8 lg:gap-12">
+      <div className="relative grid grid-cols-12 gap-x-0 gap-y-8 lg:gap-12">
         <div className="col-span-12 lg:col-span-5">
           <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
             Initiate workflow · Partnership &amp; contact
