@@ -24,14 +24,11 @@ function AreaCard({ area }: { area: TrainingArea }) {
       <h4 className="text-xl font-semibold leading-[1.15] tracking-[-0.03em] text-fg">
         {area.title}
       </h4>
-      <p className="mt-3 inline-flex w-fit max-w-full rounded border border-line-strong bg-tint-2 px-2.5 py-1 font-mono text-xs text-fg">
-        <span className="text-muted mr-1">[</span>
-        <span className="text-muted mr-1.5">Capacity:</span>
-        <span>{area.capacity}</span>
-        <span className="text-muted ml-1">]</span>
+      <p className="mt-3 text-sm leading-relaxed text-fg-2">
+        {area.description}
       </p>
 
-      <dl className="mt-4 space-y-3">
+      <dl className="mt-5 space-y-2.5">
         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <dt className={`${META} w-20 shrink-0 text-muted`}>Audience</dt>
           <dd className="text-sm text-fg-2">{area.audience}</dd>
@@ -52,9 +49,9 @@ function AreaCard({ area }: { area: TrainingArea }) {
         </div>
       </dl>
 
-      <p className="mt-5 text-sm leading-relaxed text-fg">{area.description}</p>
+      <div aria-hidden="true" className="my-5 border-t border-line" />
 
-      <ul className="mt-5 space-y-1.5 border-t border-line pt-4">
+      <ul className="space-y-1.5">
         {area.topics.map((t) => (
           <Bullet key={t}>{t}</Bullet>
         ))}

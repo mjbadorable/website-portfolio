@@ -217,8 +217,6 @@ export type TrainingArea = {
   platforms: string[];
   audience: string;
   description: string;
-  /** Marvin's exact capacity in this area. */
-  capacity: string;
   topics: string[];
 };
 
@@ -254,12 +252,11 @@ export const talksAndTraining: {
   trainingEnablementAreas: [
     {
       title: "LMS Training & Onboarding",
-      capacity: "Technical Support & Faculty Onboarding",
       platformLabel: "Platforms",
       platforms: ["NEO LMS"],
       audience: "Faculty and Students",
       description:
-        "Learn how to create classes, manage course materials, enroll students, and use online learning tools.",
+        "Hands-on faculty and student onboarding, course structure setup, and technical navigation support for university learning platforms.",
       topics: [
         "Faculty course creation",
         "Student enrollment",
@@ -272,12 +269,11 @@ export const talksAndTraining: {
     },
     {
       title: "Academic System Orientation",
-      capacity: "System QA & Workflow Validation",
       platformLabel: "Systems",
       platforms: ["OBE", "WFDMS"],
       audience: "Faculty, Deans, and Academic Supervisors",
       description:
-        "Understand new university platforms such as OBE (Outcomes-Based Education) and WFDMS (Web-Based Faculty Deliverables Monitoring System), explore their workflows, participate in pilot testing, and learn how academic processes are handled.",
+        "Technical orientation and workflow validation support during institutional system rollouts, including pilots of OBE (Outcomes-Based Education) and WFDMS (Web-Based Faculty Deliverables Monitoring System).",
       topics: [
         "New platform orientation",
         "Pilot testing and feedback gathering",
@@ -287,12 +283,11 @@ export const talksAndTraining: {
     },
     {
       title: "Grade Encoding & Academic Workflows",
-      capacity: "Technical Support & Faculty Onboarding",
       platformLabel: "Platform",
       platforms: ["MasterSoft"],
       audience: "Faculty and Academic Heads",
       description:
-        "Learn grade configuration, encoding, submission, and academic approval procedures.",
+        "Practical faculty support for student grade configuration, transmutation validation, and MasterSoft ERP encoding procedures.",
       topics: [
         "Grade weightage configuration",
         "Grade encoding",
@@ -302,12 +297,11 @@ export const talksAndTraining: {
     },
     {
       title: "Educational & Assessment Tools",
-      capacity: "Technical Support & Software Orientation",
       platformLabel: "Tools",
       platforms: ["Turnitin", "Digital Quiz Tools"],
       audience: "Academic Staff",
       description:
-        "Explore digital assessment, plagiarism checking, online quizzes, and supplementary software for teaching.",
+        "Technical orientation and setup guidance for Turnitin originality checking, digital assessment workflows, and online evaluation tools.",
       topics: [
         "Turnitin originality checking",
         "Digital assessment workflows",
