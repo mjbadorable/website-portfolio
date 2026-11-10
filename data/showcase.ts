@@ -137,4 +137,18 @@ export const recentProjects: RecentProject[] = [
       "Client-side Dexie v4 offline database",
     ],
   },
+  {
+    host: "task-management-api.local",
+    title: "Task Management API",
+    description:
+      "A Python backend API for managing tasks, built with FastAPI and SQLAlchemy on a SQLite database.",
+    points: ["FastAPI", "SQLAlchemy ORM", "SQLite"],
+  },
+  {
+    host: "air-quality-station.local",
+    title: "Outdoor Air Quality Monitoring Station",
+    description:
+      "My embedded-systems thesis: a real-time outdoor air quality monitor with a notification system, designed for transport terminals.",
+    points: ["Embedded systems", "Real-time monitoring", "Notification system"],
+  },
 ];

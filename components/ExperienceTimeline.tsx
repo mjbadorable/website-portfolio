@@ -106,6 +106,30 @@ export function ExperienceTimeline() {
               </h3>
               <p className="mt-2 text-sm text-fg-2">{e.institution}</p>
 
+              {e.specialization && (
+                <p className="mt-4 text-sm font-medium text-fg">
+                  {e.specialization}
+                </p>
+              )}
+              {e.thesis && (
+                <p className="mt-3 text-sm leading-relaxed text-fg-2">
+                  <span className={`${META} block text-muted`}>Thesis</span>
+                  <span className="mt-1 block">{e.thesis}</span>
+                </p>
+              )}
+              {e.awards && (
+                <ul aria-label="Awards" className="mt-4 flex flex-wrap gap-1.5">
+                  {e.awards.map((a) => (
+                    <li
+                      key={a}
+                      className="rounded border border-line-strong bg-tint-2 px-2 py-0.5 font-mono text-xs text-fg"
+                    >
+                      {a}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
               {e.focusAreas ? (
                 <p className="mt-4 text-sm leading-relaxed text-muted">
                   <span className="text-fg-2">Focus: </span>

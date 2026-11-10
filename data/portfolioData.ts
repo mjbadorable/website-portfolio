@@ -128,10 +128,15 @@ export type EducationEntry = {
   completed?: boolean; // true = finished degree, false/omitted = ongoing
   description: string;
   focusAreas?: string[];
+  /** Only where confirmed by the owner. */
+  specialization?: string;
+  thesis?: string;
+  awards?: string[];
   tags: string[]; // short labels, taken from the verified description
 };
 
-// Most recent first. No thesis titles: none are confirmed.
+// Most recent first. Thesis, specialization and awards appear only where the
+// owner confirmed them (BS CpE). The MS CpE has no confirmed thesis title.
 export const education: EducationEntry[] = [
   {
     degree: "Master of Science in Computer Engineering (MS CpE)",
@@ -161,6 +166,14 @@ export const education: EducationEntry[] = [
     completed: true,
     description:
       "Undergraduate foundation in computer engineering, software development, digital systems, and computing workflows.",
+    specialization: "Embedded Systems Specialization",
+    thesis:
+      "Development of Real-time Outdoor Air Quality Monitoring with Notification System for Transport Terminals",
+    awards: [
+      "Best Research Paper Awardee",
+      "Leadership Award (ACES President)",
+      "Augustinian PassionProjects Award",
+    ],
     tags: ["BS Computer Engineering", "Systems Design", "Class of 2023"],
   },
 ];
@@ -309,7 +322,13 @@ export const journalEntries: JournalEntry[] = [
     category: "Education",
     organization: "University of San Agustin",
     description:
-      "Completed undergraduate degree in Computer Engineering, establishing the core technical foundation in computer systems, digital logic, and software development.",
+      "Completed undergraduate degree in Computer Engineering with an Embedded Systems specialization, establishing the core technical foundation in computer systems, digital logic, and software development.",
+    details: [
+      "Embedded Systems Specialization",
+      "Thesis: Development of Real-time Outdoor Air Quality Monitoring with Notification System for Transport Terminals",
+      "Best Research Paper Awardee",
+      "Augustinian PassionProjects Award",
+    ],
     tags: ["BS Computer Engineering", "University of San Agustin", "Class of 2023"],
   },
   {
@@ -319,6 +338,7 @@ export const journalEntries: JournalEntry[] = [
     category: "Leadership",
     description:
       "Served as ACES President, marking a foundational milestone in student leadership, peer engineering collaboration, and academic representation.",
+    details: ["Received the Leadership Award (ACES President)"],
   },
   {
     id: "edtech-assistant-start",

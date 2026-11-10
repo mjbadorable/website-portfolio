@@ -80,7 +80,7 @@ export function TechStackAndProjects() {
         {/* Part 2: recent projects */}
         <div className="mt-14">
           <h3 className={`${META} text-fg-2`}>Recent projects</h3>
-          <ul className="mt-4 grid gap-4 lg:grid-cols-[1.3fr_1fr_1fr] lg:gap-6">
+          <ul className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {recentProjects.map((p) => (
               <li
                 key={p.title}
