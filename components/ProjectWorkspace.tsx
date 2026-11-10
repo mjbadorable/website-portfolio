@@ -163,10 +163,17 @@ export function ProjectWorkspace() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.18 }}
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h3 className="text-lg font-medium tracking-[-0.02em] text-fg">
-                      {project.name}
-                    </h3>
+                  <div className="flex flex-wrap items-start justify-between gap-2">
+                    <div className="max-w-[42ch]">
+                      <h3 className="text-lg font-medium tracking-[-0.02em] text-fg">
+                        {project.name}
+                      </h3>
+                      {"description" in project && project.description && (
+                        <p className="mt-1 text-xs leading-relaxed text-fg-2">
+                          {project.description}
+                        </p>
+                      )}
+                    </div>
                     <span
                       className={`${META} inline-flex items-center gap-1.5 rounded border border-line px-2 py-1 text-fg-2`}
                     >

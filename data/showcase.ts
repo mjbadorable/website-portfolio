@@ -23,6 +23,8 @@ export const collabWorkspace = {
     {
       id: "mastersoft",
       name: "Mastersoft Grade Assistant",
+      description:
+        "Faculty grade computation and validation assistant with Mastersoft ERP transmutation formula verification.",
       lanes: [
         { label: "Plan", pct: 100 },
         { label: "Architect", pct: 100 },
@@ -34,6 +36,8 @@ export const collabWorkspace = {
     {
       id: "budget",
       name: "EDTECH Budget System",
+      description:
+        "Fiscal allocation and purchase request engine with real-time Convex cloud sync and Excel ingestion.",
       lanes: [
         { label: "Plan", pct: 100 },
         { label: "Architect", pct: 90 },
@@ -95,6 +99,7 @@ export type RecentProject = {
   href?: string; // live demo
   repo?: string; // public source repository
   title: string;
+  description: string;
   points: string[];
 };
 
@@ -104,16 +109,22 @@ export const recentProjects: RecentProject[] = [
     href: "https://mastersoft-grade-assistant.web.app",
     repo: "https://github.com/mjbadorable/Mastersoft-Grade-Encoding-Assistant",
     title: "Mastersoft Grade Assistant v2.0",
+    description:
+      "An offline-first grading assistant for university faculty to compute, validate, and batch-encode student grades into the Mastersoft ERP system with automated formula transmutation.",
     points: ["Formula validation", "Spreadsheet grid", "328 tests"],
   },
   {
     host: "convex-budget.app",
     title: "Reactive Budget & Expense Monitoring",
+    description:
+      "An institutional budget and purchase request tracker with real-time Convex cloud synchronization, multi-tab Excel workbook ingestion, and live fiscal allocation telemetry.",
     points: ["Convex cloud sync", "Multi-tab Excel importer", "707 tests"],
   },
   {
     host: "exam-reviewer.app",
     title: "Exam Reviewer Platform",
+    description:
+      "An offline-ready exam reviewer PWA featuring split-screen PDF question browsing, automated bubble-sheet scoring, and client-side Dexie IndexedDB state persistence.",
     points: [
       "Split-screen PDF.js viewer",
       "Bubble-sheet scoring engine",

@@ -92,6 +92,9 @@ export function TechStackAndProjects() {
                   <h4 className="text-xl font-medium leading-[1.15] tracking-[-0.03em] text-fg">
                     {p.title}
                   </h4>
+                  <p className="mt-2.5 text-sm leading-relaxed text-fg-2">
+                    {p.description}
+                  </p>
                   <ul className="mt-4 space-y-1.5">
                     {p.points.map((pt) => (
                       <li
