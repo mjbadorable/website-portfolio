@@ -141,6 +141,7 @@ export const experienceRoles: ExperienceRole[] = [
 export type EducationEntry = {
   degree: string;
   institution: string;
+  logo?: string;
   mode?: string;
   status: string;
   completed?: boolean; // true = finished degree, false/omitted = ongoing
@@ -159,6 +160,7 @@ export const education: EducationEntry[] = [
   {
     degree: "Master of Science in Computer Engineering (MS CpE)",
     institution: "Mapúa University",
+    logo: "/mapua-logo.png",
     mode: "Online",
     status: "Ongoing – Second Year (Expected 2028)",
     description:
@@ -180,6 +182,7 @@ export const education: EducationEntry[] = [
   {
     degree: "Bachelor of Science in Computer Engineering (BS CpE)",
     institution: "University of San Agustin",
+    logo: "/usa-logo.png",
     status: "Graduated June 2023",
     completed: true,
     description:

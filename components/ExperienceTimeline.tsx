@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { education, experienceRoles } from "@/data/portfolioData";
 
 const META = "font-mono text-xs uppercase tracking-[0.14em]";
@@ -112,13 +113,27 @@ export function ExperienceTimeline() {
                   )}
                 </div>
 
-                {/* 2. Degree + institution */}
-                <h3 className="mt-3 text-xl font-semibold leading-[1.15] tracking-[-0.03em] text-fg">
-                  {e.degree}
-                </h3>
-                <p className="mt-1 text-sm font-medium text-fg-2">
-                  {e.institution}
-                </p>
+                {/* 2. Degree + institution with crest */}
+                <div className="mt-3 flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="text-xl font-semibold leading-[1.15] tracking-[-0.03em] text-fg">
+                      {e.degree}
+                    </h3>
+                    <p className="mt-1 text-sm font-medium text-fg-2">
+                      {e.institution}
+                    </p>
+                  </div>
+                  {e.logo && (
+                    <div className="relative size-10 shrink-0 overflow-hidden rounded-md border border-line bg-tint/60 p-1 shadow-[inset_0_1px_0_0_var(--highlight)]">
+                      <Image
+                        src={e.logo}
+                        alt={`${e.institution} logo`}
+                        fill
+                        className="object-contain p-1"
+                      />
+                    </div>
+                  )}
+                </div>
 
                 {/* 3. Focus areas / specialization */}
                 <div className="mt-5">
