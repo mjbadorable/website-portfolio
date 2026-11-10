@@ -140,13 +140,13 @@ export function HeroWelcome() {
             <motion.h1
               id="hero-heading"
               variants={heading}
-              aria-label="Computer Engineer architecting web applications, educational technology systems, and AI workflows."
-              className="mt-5 max-w-[22ch] text-balance text-4xl font-medium leading-[1.1] tracking-[-0.04em] text-fg sm:text-5xl lg:text-[3.35rem]"
+              aria-label="Computer Engineer building software, educational technology, and intelligent workflows."
+              className="mt-4 max-w-[26ch] text-balance text-3xl font-medium leading-[1.12] tracking-[-0.035em] text-fg sm:text-4xl lg:text-[2.65rem]"
             >
               <span aria-hidden="true">
-                <Words text="Computer Engineer architecting web applications," />{" "}
+                <Words text="Computer Engineer building software," />{" "}
                 <span className="text-muted">
-                  <Words text="educational technology systems, and AI workflows." />
+                  <Words text="educational technology, and intelligent workflows." />
                 </span>
               </span>
             </motion.h1>
