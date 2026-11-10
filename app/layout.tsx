@@ -38,11 +38,6 @@ export const metadata: Metadata = {
     locale: "en_US",
   },
   twitter: { card: "summary_large_image", title, description },
-  icons: {
-    icon: "/marvin.png",
-    shortcut: "/marvin.png",
-    apple: "/marvin.png",
-  },
 };
 
 export const viewport: Viewport = {
