@@ -1,7 +1,7 @@
 import { talksAndTraining } from "@/data/portfolioData";
 import { TrainingContent } from "./TrainingContent";
 
-const META = "font-mono text-[11px] uppercase tracking-[0.18em]";
+const META = "font-mono text-xs uppercase tracking-[0.14em]";
 
 // Server component on purpose: unpublished entries are filtered out here, so they
 // are never serialized into the client bundle that powers the tabs.

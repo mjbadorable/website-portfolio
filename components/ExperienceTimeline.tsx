@@ -1,6 +1,6 @@
 import { education, experienceRoles } from "@/data/portfolioData";
 
-const META = "font-mono text-[11px] uppercase tracking-[0.18em]";
+const META = "font-mono text-xs uppercase tracking-[0.14em]";
 
 const tag =
   "rounded border border-line bg-tint px-2 py-0.5 font-mono text-xs text-fg-2";

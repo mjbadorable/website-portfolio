@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { journalEntries, type JournalEntry } from "@/data/portfolioData";
 
-const META = "font-mono text-[11px] uppercase tracking-[0.18em]";
+const META = "font-mono text-xs uppercase tracking-[0.14em]";
 
 // Only years that actually have an entry, newest first.
 const YEARS = [...new Set(journalEntries.map((e) => e.year))].sort(
@@ -23,7 +23,7 @@ function Entry({ e }: { e: JournalEntry }) {
     <li className="lift rounded-lg border border-line bg-surface shadow-[inset_0_1px_0_0_var(--highlight)] hover:border-line-strong">
       <div className="p-6 sm:p-7">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="rounded border border-line bg-tint-2 px-2 py-0.5 font-mono text-[11px] uppercase tracking-[0.14em] text-fg">
+          <span className="rounded border border-line bg-tint-2 px-2 py-0.5 font-mono text-xs uppercase tracking-[0.14em] text-fg">
             {e.category}
           </span>
           <span className={`${META} text-muted`}>{e.year}</span>
@@ -66,12 +66,12 @@ function Entry({ e }: { e: JournalEntry }) {
         {e.details && (
           <details className="group mt-5 border-t border-line pt-4">
             <summary
-              className={`${META} flex cursor-pointer list-none items-center justify-between text-fg-2 hover:text-fg [&::-webkit-details-marker]:hidden`}
+              className={`${META} flex cursor-pointer list-none items-center justify-between rounded text-fg-2 transition-colors hover:text-fg focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent [&::-webkit-details-marker]:hidden`}
             >
               Highlights ({e.details.length})
               <ChevronDown
                 aria-hidden="true"
-                className="size-4 transition-transform group-open:rotate-180"
+                className="size-4 transition-transform duration-200 group-open:rotate-180"
               />
             </summary>
             <ul className="mt-3 space-y-2">
@@ -155,7 +155,7 @@ export function ProfessionalJournal() {
               >
                 {active && (
                   <motion.span
-                    layoutId="activeJournalYear"
+                    layoutId="activeJournalFilter"
                     aria-hidden="true"
                     className="absolute inset-0 rounded-md bg-accent shadow-sm"
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}

@@ -10,7 +10,7 @@ import { profile as contact } from "@/data/profile";
 import { PressA, PressLink } from "./Pressable";
 import { useThemeMotion } from "./ThemeAndMotionProvider";
 
-const META = "font-mono text-[11px] uppercase tracking-[0.18em]";
+const META = "font-mono text-xs uppercase tracking-[0.14em]";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -116,7 +116,7 @@ export function HeroWelcome() {
 
         {/* Status bar */}
         <div className="relative flex flex-wrap items-center justify-end gap-x-6 gap-y-2 border-b border-line px-6 py-3 sm:px-10 lg:px-14">
-          <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.16em] text-muted">
+          <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-muted">
             <span
               aria-hidden="true"
               className="size-1.5 rounded-full bg-ok"

@@ -173,7 +173,7 @@ export function Header() {
               transition={SPRING}
             >
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+                <span className="font-mono text-xs uppercase tracking-[0.14em] text-muted">
                   Menu
                 </span>
                 <button

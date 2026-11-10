@@ -4,7 +4,7 @@ import { Activity, Moon, Sun } from "lucide-react";
 import { useThemeMotion } from "./ThemeAndMotionProvider";
 
 const btn =
-  "inline-flex h-8 items-center gap-1.5 rounded-full border border-line bg-tint px-2.5 font-mono text-[11px] uppercase tracking-[0.14em] text-fg-2 transition-colors hover:border-line-strong hover:text-fg";
+  "inline-flex h-8 items-center gap-1.5 rounded-full border border-line bg-tint px-2.5 font-mono text-xs uppercase tracking-[0.14em] text-fg-2 transition-colors hover:border-line-strong hover:text-fg";
 
 // Theme: one button, obsidian (dark) <-> paper (light). The icon shows the
 // theme you will switch TO. Motion: ON / OFF.

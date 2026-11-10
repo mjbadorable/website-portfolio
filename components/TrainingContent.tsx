@@ -2,7 +2,7 @@
 
 import type { TrainingArea, TrainingEvent } from "@/data/portfolioData";
 
-const META = "font-mono text-[11px] uppercase tracking-[0.18em]";
+const META = "font-mono text-xs uppercase tracking-[0.14em]";
 
 const chip =
   "rounded border border-line bg-tint px-2.5 py-1 font-mono text-xs text-fg-2 shadow-[inset_0_1px_0_0_var(--highlight)]";
@@ -24,7 +24,7 @@ function AreaCard({ area }: { area: TrainingArea }) {
       <h4 className="text-xl font-semibold leading-[1.15] tracking-[-0.03em] text-fg">
         {area.title}
       </h4>
-      <p className="mt-3 inline-flex w-fit max-w-full rounded border border-line-strong bg-tint-2 px-2.5 py-1 font-mono text-[11px] text-fg">
+      <p className="mt-3 inline-flex w-fit max-w-full rounded border border-line-strong bg-tint-2 px-2.5 py-1 font-mono text-xs text-fg">
         [ Capacity: {area.capacity} ]
       </p>
 

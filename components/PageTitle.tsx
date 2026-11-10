@@ -1,4 +1,4 @@
-const META = "font-mono text-[11px] uppercase tracking-[0.18em]";
+const META = "font-mono text-xs uppercase tracking-[0.14em]";
 
 // Page-level heading for the inner routes: a mono label and one punchy H1.
 export function PageTitle({

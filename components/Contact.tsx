@@ -22,7 +22,7 @@ export function Contact() {
       />
       <div className="relative grid grid-cols-12 gap-x-0 gap-y-8 lg:gap-12">
         <div className="col-span-12 lg:col-span-5">
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
             Initiate workflow · Partnership &amp; contact
           </p>
           <h2
@@ -37,7 +37,7 @@ export function Contact() {
         <div className="col-span-12 lg:col-span-7">
           <Reveal>
             <SpotlightCard className="p-6 sm:p-8" innerClassName="flex flex-col">
-              <p className="mb-5 inline-flex w-fit max-w-full items-center gap-2.5 rounded-full border border-line bg-tint py-1.5 pl-3 pr-4 font-mono text-[11px] uppercase tracking-[0.14em] text-fg-2">
+              <p className="mb-5 inline-flex w-fit max-w-full items-center gap-2.5 rounded-full border border-line bg-tint py-1.5 pl-3 pr-4 font-mono text-xs uppercase tracking-[0.14em] text-fg-2">
                 <span className="relative flex size-2 shrink-0">
                   <span
                     aria-hidden="true"

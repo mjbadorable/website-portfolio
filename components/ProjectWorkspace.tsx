@@ -8,7 +8,7 @@ import { HealthBadge, useHealth } from "./Health";
 import { PressA, SPRING } from "./Pressable";
 import { useThemeMotion } from "./ThemeAndMotionProvider";
 
-const META = "font-mono text-[11px] uppercase tracking-[0.18em]";
+const META = "font-mono text-xs uppercase tracking-[0.14em]";
 
 // Decorative address-bar text. The reachability ping targets the real site root.
 const ADDRESS = "collabworkspace.dev/control-plane";
@@ -230,7 +230,7 @@ export function ProjectWorkspace() {
             </div>
           </div>
 
-          <p className="border-t border-line px-4 py-3 text-center font-mono text-[10px] uppercase tracking-[0.18em] text-muted">
+          <p className="border-t border-line px-4 py-3 text-center font-mono text-xs uppercase tracking-[0.18em] text-muted">
             Simulated UI · illustrative data, not production records
           </p>
         </div>

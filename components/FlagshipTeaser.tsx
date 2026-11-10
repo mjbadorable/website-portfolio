@@ -3,7 +3,7 @@ import { collabWorkspace as cw } from "@/data/showcase";
 import { HealthPing } from "./Health";
 import { PressA, PressLink } from "./Pressable";
 
-const META = "font-mono text-[11px] uppercase tracking-[0.18em]";
+const META = "font-mono text-xs uppercase tracking-[0.14em]";
 
 // Home-page teaser for the flagship build; the full shell lives on /projects.
 export function FlagshipTeaser() {

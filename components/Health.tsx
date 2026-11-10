@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const META = "font-mono text-[11px] uppercase tracking-[0.18em]";
+const META = "font-mono text-xs uppercase tracking-[0.14em]";
 
 export type Health =
   | { status: "checking" }

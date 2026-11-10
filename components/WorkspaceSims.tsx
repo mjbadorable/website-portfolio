@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import type { WorkspaceProjectId } from "@/data/portfolioData";
 import { useThemeMotion } from "./ThemeAndMotionProvider";
 
-const META = "font-mono text-[11px] uppercase tracking-[0.18em] text-muted";
+const META = "font-mono text-xs uppercase tracking-[0.14em] text-muted";
 
 const primary =
   "inline-flex h-9 items-center gap-1.5 rounded-md bg-accent px-4 text-[13px] font-medium text-accent-fg transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-50";
@@ -172,7 +172,7 @@ function RagSim() {
             style={{ left: `${THRESHOLD * 100}%` }}
           />
         </div>
-        <p className="mt-1.5 text-[10px] text-muted">
+        <p className="mt-1.5 text-xs text-muted">
           threshold {THRESHOLD.toFixed(2)}
         </p>
       </div>

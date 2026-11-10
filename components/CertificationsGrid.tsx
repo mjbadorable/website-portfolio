@@ -4,7 +4,7 @@ import {
   certifications,
 } from "@/data/certifications";
 
-const META = "font-mono text-[11px] uppercase tracking-[0.18em]";
+const META = "font-mono text-xs uppercase tracking-[0.14em]";
 
 export function CertificationsGrid() {
   return (
@@ -39,7 +39,7 @@ export function CertificationsGrid() {
                     key={cert.id}
                     className="lift flex flex-col rounded-xl border border-line bg-surface p-5 shadow-[inset_0_1px_0_0_var(--highlight)] transition-colors hover:border-line-strong"
                   >
-                    <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
+                    <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted">
                       {cert.issuer}
                     </p>
                     <h4 className="mt-2 text-lg font-medium tracking-tight text-fg">
@@ -50,7 +50,7 @@ export function CertificationsGrid() {
                       {cert.skills.map((s) => (
                         <li
                           key={s}
-                          className="rounded border border-line bg-tint px-2 py-0.5 font-mono text-[11px] text-fg-2"
+                          className="rounded border border-line bg-tint px-2 py-0.5 font-mono text-xs text-fg-2"
                         >
                           {s}
                         </li>

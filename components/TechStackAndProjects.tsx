@@ -1,7 +1,7 @@
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { recentProjects, stack } from "@/data/showcase";
 
-const META = "font-mono text-[11px] uppercase tracking-[0.18em]";
+const META = "font-mono text-xs uppercase tracking-[0.14em]";
 
 const pill =
   "rounded-full border border-line bg-tint px-3 py-1.5 font-mono text-[13px] text-fg-2 shadow-[inset_0_1px_0_0_var(--highlight)] transition-colors hover:border-line-strong hover:bg-tint-2 hover:text-fg";
@@ -90,7 +90,7 @@ export function TechStackAndProjects() {
               >
                 <div className="flex items-center gap-3 border-b border-line bg-tint px-3.5 py-2.5">
                   <Dots />
-                  <span className="min-w-0 flex-1 truncate rounded border border-line bg-sunken px-2.5 py-1 font-mono text-[11px] text-fg-2">
+                  <span className="min-w-0 flex-1 truncate rounded border border-line bg-sunken px-2.5 py-1 font-mono text-xs text-fg-2">
                     {p.host}
                   </span>
                 </div>
@@ -122,10 +122,10 @@ export function TechStackAndProjects() {
                         Architecture pipeline
                         <ChevronDown
                           aria-hidden="true"
-                          className="size-3.5 transition-transform group-open:rotate-180"
+                          className="size-3.5 transition-transform duration-200 group-open:rotate-180"
                         />
                       </summary>
-                      <ol className="mt-3 space-y-1.5">
+                      <ol className="mt-3 space-y-1.5 rounded-md border-l-2 border-line-strong bg-tint/50 p-3 pl-3">
                         {p.architectureSummary
                           .replace(/\.$/, "")
                           .split("➔")
@@ -169,7 +169,7 @@ export function TechStackAndProjects() {
                       </a>
                     )}
                     {!p.href && !p.repo && (
-                      <span className="font-mono text-[11px] text-muted">
+                      <span className="font-mono text-xs text-muted">
                         Internal build · address bar simulated
                       </span>
                     )}
