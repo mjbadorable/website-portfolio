@@ -16,7 +16,7 @@ export const profile: PortfolioProfile = {
   photo: "/marvin.jpg",
   cv: "/marvin-adorable-cv.pdf",
   availability:
-    "Computer Engineer · MS CpE Candidate @ Mapúa · EdTech & Systems Developer",
+    "Computer Engineer · EdTech & Systems Developer",
   email: base.email,
   badges: {
     credential: "BS CpE '23 / MS Candidate",
