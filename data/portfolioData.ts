@@ -13,7 +13,7 @@ export type PortfolioProfile = {
 export const profile: PortfolioProfile = {
   name: "Marvin Jhay Adorable",
   location: "Iloilo, PH // GMT+8",
-  photo: "/marvin.jpg",
+  photo: "/marvin.png",
   cv: "/marvin-adorable-cv.pdf",
   availability:
     "Computer Engineer · EdTech & Systems Developer",

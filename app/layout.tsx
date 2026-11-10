@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", title, description },
   icons: {
-    icon: "/marvin.jpg",
-    shortcut: "/marvin.jpg",
-    apple: "/marvin.jpg",
+    icon: "/marvin.png",
+    shortcut: "/marvin.png",
+    apple: "/marvin.png",
   },
 };
 

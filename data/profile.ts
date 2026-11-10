@@ -26,7 +26,7 @@ export const profile: Profile = {
   availability: "Available for Projects",
   location: "Iloilo, PH",
   portrait: {
-    src: "/marvin.jpg",
+    src: "/marvin.png",
     alt: "Marvin Jhay Adorable",
   },
   email: "adorablemarvinjhay@gmail.com",
