@@ -2,7 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Download } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Code2,
+  Download,
+  GraduationCap,
+  MapPin,
+  Zap,
+  type LucideIcon,
+} from "lucide-react";
 import { track } from "@vercel/analytics";
 import { MotionConfig, motion, useReducedMotion, type Variants } from "framer-motion";
 import { profile } from "@/data/portfolioData";
@@ -58,7 +67,11 @@ function Words({ text }: { text: string }) {
   );
 }
 
-const FOCUS = ["Software Development", "Educational Technology", "AI & Automation"];
+const FOCUS: { label: string; Icon: LucideIcon }[] = [
+  { label: "Software Development", Icon: Code2 },
+  { label: "Educational Technology", Icon: GraduationCap },
+  { label: "AI & Automation", Icon: Zap },
+];
 
 // Fine stipple (halftone dots in the canvas colour) plus film grain, drawn over
 // the portrait for a tactile, bitmap feel. Colours come from theme tokens.
@@ -141,12 +154,12 @@ export function HeroWelcome() {
               id="hero-heading"
               variants={heading}
               aria-label="Computer Engineer building software, educational technology, and intelligent workflows."
-              className="mt-4 max-w-[26ch] text-balance text-3xl font-medium leading-[1.12] tracking-[-0.035em] text-fg sm:text-4xl lg:text-[2.65rem]"
+              className="mt-4 max-w-[28ch] text-balance text-3xl font-medium leading-[1.12] tracking-[-0.035em] text-fg sm:text-4xl lg:text-[2.65rem]"
             >
               <span aria-hidden="true">
-                <Words text="Computer Engineer building software," />{" "}
-                <span className="text-muted">
-                  <Words text="educational technology, and intelligent workflows." />
+                <Words text="Computer Engineer building software, educational technology, and" />{" "}
+                <span className="text-ok">
+                  <Words text="intelligent workflows." />
                 </span>
               </span>
             </motion.h1>
@@ -167,12 +180,13 @@ export function HeroWelcome() {
               aria-label="Focus areas"
               className="mt-6 flex flex-wrap gap-2"
             >
-              {FOCUS.map((f) => (
+              {FOCUS.map(({ label, Icon }) => (
                 <li
-                  key={f}
-                  className="rounded border border-line bg-tint px-2.5 py-1 font-mono text-xs text-fg-2"
+                  key={label}
+                  className="inline-flex items-center gap-2 rounded-full border border-line bg-tint px-3 py-1.5 text-[13px] text-fg-2"
                 >
-                  [ {f} ]
+                  <Icon aria-hidden="true" className="size-3.5 text-fg" />
+                  {label}
                 </li>
               ))}
             </motion.ul>
@@ -215,6 +229,10 @@ export function HeroWelcome() {
                   </SocialLink>
                 </li>
               ))}
+              <li className="inline-flex items-center gap-1.5 text-sm text-muted">
+                <MapPin aria-hidden="true" className="size-3.5" />
+                Iloilo, Philippines
+              </li>
             </motion.ul>
           </motion.div>
 
@@ -223,8 +241,12 @@ export function HeroWelcome() {
             initial={reveal ? { clipPath: "inset(0 0 0 100%)" } : false}
             animate={{ clipPath: "inset(0 0 0 0%)" }}
             transition={{ duration: 0.9, ease: EASE }}
-            className="hero-reveal col-span-12 sm:col-span-8 lg:col-span-5"
+            className="hero-reveal relative col-span-12 sm:col-span-8 lg:col-span-5"
           >
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(closest-side,var(--glow),transparent)]"
+            />
             <motion.div
               animate={motionEnabled ? { y: [0, -4, 0] } : { y: 0 }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}

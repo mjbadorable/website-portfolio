@@ -46,26 +46,30 @@ export const collabWorkspace = {
       ],
       samples: [50, 58, 64, 60, 68, 74, 70, 66, 72, 78, 74, 80, 76, 70, 74, 82],
     },
+    {
+      id: "veritas",
+      name: "Veritas",
+      description:
+        "Optical-mark answer-sheet designer, OpenCV camera scanner, and item-analysis grader.",
+      lanes: [
+        { label: "Plan", pct: 100 },
+        { label: "Architect", pct: 95 },
+        { label: "Monitor", pct: 80 },
+        { label: "Manage", pct: 75 },
+      ],
+      samples: [58, 66, 72, 68, 76, 82, 78, 84, 80, 86, 82, 88, 84, 86, 90, 88],
+    },
   ],
 };
 
 export const stack = {
-  file: "stack.json",
   categories: [
     {
-      key: "CORE LANGUAGES",
-      items: [
-        "JavaScript",
-        "TypeScript",
-        "Python",
-        "C",
-        "C++",
-        "SQL",
-        "Bash",
-      ],
+      title: "Core Languages",
+      items: ["TypeScript", "Python", "C", "C++", "SQL", "Bash"],
     },
     {
-      key: "FRONTEND & CLOUD",
+      title: "Frontend & Cloud",
       items: [
         "Next.js 16",
         "React 19",
@@ -76,7 +80,7 @@ export const stack = {
       ],
     },
     {
-      key: "AI & AUTOMATION",
+      title: "AI & Automation",
       items: [
         "Claude API",
         "Activepieces",
@@ -86,7 +90,7 @@ export const stack = {
       ],
     },
     {
-      key: "EDTECH & MANUAL QA",
+      title: "EdTech & Manual QA",
       items: [
         "MasterSoft ERP",
         "Zoho Help Desk",
@@ -100,67 +104,106 @@ export const stack = {
   ],
 };
 
+// Facts below come from the owner's project notes and repositories. Notes
+// describe what each build does; they carry no usage numbers or test counts.
+export const projectCategories = ["Web apps", "Systems"] as const;
+
+export type ProjectCategory = (typeof projectCategories)[number];
+
 export type RecentProject = {
-  host: string; // address-bar text; only `href` projects are real, live sites
-  href?: string; // live demo
-  repo?: string; // public source repository
-  /** High-level data flow for builds without a public link. Steps split on "➔". */
-  architectureSummary?: string;
+  id: string;
   title: string;
+  category: ProjectCategory;
+  domain: string;
   description: string;
-  points: string[];
+  tech: string[]; // four at most
+  image: string; // dashboard screenshot under /public/projects
+  liveUrl?: string; // only real, reachable URLs
+  repoUrl?: string; // only public repositories under github.com/mjbadorable
+  notes: { problem?: string; approach?: string; outcome?: string };
+  /** High-level data flow. Steps split on "➔". */
+  architectureSummary?: string;
 };
 
 export const recentProjects: RecentProject[] = [
   {
-    host: "mastersoft-grade-assistant.web.app",
-    href: "https://mastersoft-grade-assistant.web.app",
-    repo: "https://github.com/mjbadorable/Mastersoft-Grade-Encoding-Assistant",
-    title: "Mastersoft Grade Assistant v2.0",
+    id: "collab-workspace",
+    title: "Collab Workspace",
+    category: "Web apps",
+    domain: "Developer Control Plane",
     description:
-      "Offline-first grading tool for university faculty to compute, validate, and batch-encode grades into MasterSoft ERP.",
-    points: ["Formula validation", "Spreadsheet grid", "328 tests"],
+      "A developer control plane to plan, architect, monitor, and manage decoupled software projects from one portal.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Cloudflare"],
+    image: "/projects/collab-workspace.jpg",
+    liveUrl: "https://www.collabworkspace.dev",
+    repoUrl: "https://github.com/mjbadorable/collab-workspace",
+    notes: {
+      problem:
+        "Planning, architecture, monitoring, and management of separate software projects needed one place instead of several tools.",
+      approach:
+        "A project hub with Kanban work items, a system architecture view, and a live health monitor. Pasting a GitHub URL breaks a repository down into a starting project.",
+      outcome: "Deployed at collabworkspace.dev behind a production AuthGate.",
+    },
+  },
+  {
+    id: "mastersoft-grade-assistant",
+    title: "Mastersoft Grade Encoding Assistant",
+    category: "Web apps",
+    domain: "Academic Operations",
+    description:
+      "A companion calculator that shows faculty what to enter in Mastersoft and the grade Mastersoft will produce.",
+    tech: ["TypeScript", "React", "Firebase Hosting", "Offline PWA"],
+    image: "/projects/mastersoft-grade-assistant.jpg",
+    liveUrl: "https://mastersoft-grade-assistant.web.app",
+    repoUrl: "https://github.com/mjbadorable/Mastersoft-Grade-Encoding-Assistant",
+    notes: {
+      problem:
+        "Mastersoft rounds twice and uses a step transmutation table, so grades computed in Excel did not match its output. Teachers found out only after encoding.",
+      approach:
+        "Reproduces those rules to predict term grades and the marks to encode, with a step-by-step breakdown, Excel import, and upload-ready export.",
+      outcome:
+        "Live as a personal project, not an official university system. It does not connect to Mastersoft.",
+    },
     architectureSummary:
       "Excel / CSV class record ingestion ➔ Formula transmutation engine ➔ Spreadsheet grid editor ➔ Verified MasterSoft ERP upload batch.",
   },
   {
-    host: "convex-budget.app",
-    title: "Reactive Budget & Expense Monitoring",
+    id: "edtech-budget",
+    title: "EDTECH Budget Monitoring System",
+    category: "Systems",
+    domain: "Operations & Finance",
     description:
-      "Institutional budget tracker with real-time Convex cloud sync and multi-tab Excel import.",
-    points: ["Convex cloud sync", "Multi-tab Excel importer", "707 tests"],
+      "Budget and purchase-request tracking for the EdTech unit, with real-time Convex sync and multi-tab Excel import.",
+    tech: ["React 19", "TypeScript", "Convex", "Google Drive API"],
+    image: "/projects/edtech-budget.jpg",
+    liveUrl: "https://edtech-budget-monitoring-system.vercel.app",
+    notes: {
+      problem:
+        "Budgets and purchase requests were tracked in raw Google Spreadsheets.",
+      approach:
+        "Semester and academic-year views with a KPI ribbon, a purchase-request status workflow, and Google Drive attachments per request.",
+      outcome: "In production use for the EdTech unit.",
+    },
     architectureSummary:
       "Local state ➔ Convex reactive mutations ➔ Multi-tab XLSX schema mapping ➔ Real-time fiscal telemetry.",
   },
   {
-    host: "exam-reviewer.app",
-    title: "Exam Reviewer Platform",
+    id: "omr-grade-engine",
+    title: "Veritas",
+    category: "Web apps",
+    domain: "Assessment Automation",
     description:
-      "Offline-ready exam reviewer with split-screen PDF viewing and automated bubble-sheet scoring.",
-    points: [
-      "Split-screen PDF.js viewer",
-      "Bubble-sheet scoring engine",
-      "Client-side Dexie v4 offline database",
-    ],
-    architectureSummary:
-      "Local PDF load ➔ Client-side PDF.js rendering ➔ Bubble sheet key matcher ➔ Dexie IndexedDB cache.",
-  },
-  {
-    host: "task-management-api.local",
-    title: "Task Management API",
-    description:
-      "Python task-management API built with FastAPI, SQLAlchemy, and SQLite.",
-    points: ["FastAPI", "SQLAlchemy ORM", "SQLite"],
-    architectureSummary:
-      "FastAPI REST endpoints ➔ Pydantic request validation ➔ SQLAlchemy ORM models ➔ SQLite persistence layer.",
-  },
-  {
-    host: "air-quality-station.local",
-    title: "Outdoor Air Quality Monitoring Station",
-    description:
-      "Embedded-systems thesis: real-time outdoor air quality monitoring with notifications for transport terminals.",
-    points: ["Embedded systems", "Real-time monitoring", "Notification system"],
-    architectureSummary:
-      "Hardware sensor array ➔ Terminal telemetry sampling ➔ Notification trigger engine.",
+      "An optical-mark answer-sheet platform: design a sheet, scan photos, and grade with item analysis.",
+    tech: ["Next.js", "Convex", "Clerk", "OpenCV"],
+    image: "/projects/veritas.jpg",
+    liveUrl: "https://omr-grade-engine.vercel.app",
+    repoUrl: "https://github.com/mjbadorable/omr-grade-engine",
+    notes: {
+      problem:
+        "Paper answer sheets needed to be designed, scanned, and graded in a single workflow for faculty.",
+      approach:
+        "A sheet designer, camera-first scanning with an OpenCV worker, grading with item analysis and outcomes, and an admin area for faculty, syllabi, policy, and audit. It also runs local-first without a backend.",
+      outcome: "Live on Vercel. Faculty rollout is still pending.",
+    },
   },
 ];

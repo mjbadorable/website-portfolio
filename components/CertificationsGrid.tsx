@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { CertificationLogo } from "@/components/CertificationLogo";
 import {
   certificationCategories,
   certifications,
@@ -33,18 +34,25 @@ export function CertificationsGrid() {
                 <span aria-hidden="true" className="h-px flex-1 bg-line" />
               </div>
 
-              <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <ul className="mt-6 grid items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {items.map((cert) => (
                   <li
                     key={cert.id}
-                    className="lift flex flex-col rounded-xl border border-line bg-surface p-5 shadow-[inset_0_1px_0_0_var(--highlight)] transition-colors hover:border-line-strong"
+                    className="lift flex h-full flex-col rounded-xl border border-line bg-surface p-5 shadow-[inset_0_1px_0_0_var(--highlight)] transition-colors hover:border-line-strong"
                   >
-                    <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted">
-                      {cert.issuer}
-                    </p>
-                    <h4 className="mt-2 text-lg font-medium tracking-tight text-fg">
-                      {cert.title}
-                    </h4>
+                    <div className="flex items-start gap-3.5">
+                      <div className="flex size-11 shrink-0 items-center justify-center rounded-xl border border-line bg-tint text-fg shadow-[inset_0_1px_0_0_var(--highlight)]">
+                        <CertificationLogo id={cert.id} />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-muted">
+                          {cert.issuer}
+                        </p>
+                        <h3 className="mt-1 text-base font-semibold leading-snug tracking-tight text-fg">
+                          {cert.title}
+                        </h3>
+                      </div>
+                    </div>
 
                     <ul aria-label="Skills" className="mt-4 flex flex-wrap gap-1.5">
                       {cert.skills.map((s) => (
